@@ -7,7 +7,7 @@
   <meta name="author" content="dvlp123456" />
 
   
-  <meta name="description" content="做自己爱做的事，爱自己在做的事！" />
+  <meta name="description" content="Nodejs简单入门" />
   
 
   
@@ -75,24 +75,95 @@
     </header>
     <div class="entry">
       
-        <h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1.写在前面"></a>1.写在前面</h2><p>&ensp;&ensp;由于工作需要前一段时间自学了Nodejs，刚好又学习了个人的搭建，所以萌生把Nodejs基础记录下。<br>&ensp;&ensp;此文档还需要配合对应的练习来看，直接看文字描述会比较模糊。对应练习文档在最后有提供。<br>&ensp;&ensp;注意：此文档是本人看视频学习的手记。<br>&ensp;&ensp;右边的链接是所用到的源码。<a href="/download/webstormWorkFile.rar">源码下载</a>  </p>
+        <h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1.写在前面"></a>1.写在前面</h2><p>由于工作需要前一段时间自学了<code>Nodejs</code>，刚好又学习了个人的搭建，所以萌生把<code>Nodejs</code>基础记录下。   </p>
+<p>此文档还需要配合对应的练习来看，直接看文字描述会比较模糊。对应练习文档在最后有提供。<br>右边是对应练习文档的链接：<a href="/download/webstormWorkFile.rar&quot;">练习文档下载</a>。  </p>
+<p><code>注意：此文档是本人看视频学习的手记。</code>    </p>
 <a id="more"></a>
-<h2 id="2-Node-js概述"><a href="#2-Node-js概述" class="headerlink" title="2.Node.js概述"></a>2.Node.js概述</h2><p>&ensp;&ensp;（1）官网：<code>https://nodejs.org</code>。<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;在官网我们可以下载最新的Nodejs，目前最新版本是：8.10.0 LTS（可以简单理解为稳定版本，部署生产项目使用此版本）和9.9.0 Current（最新版本，相对不是很稳定的版本，尝试一些新功能等都可以使用此版本），我们还可以查看对应的api文档。<br>&ensp;&ensp;（2）Node.js是什么<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Node.js是使用C/C++编写的基于Chrome V8的JS运行时环境。<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Node.js是基于Chrome V8开发的；<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;有V8的一些功能，同时还拓展了一些其他功能；<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;不像Chrome中的console有window、document等dom和bom的对象;<br>&ensp;&ensp;（3）Node.js是一门基于ECMAScript开发的服务器端语言（php等也是服务器语言），提供了（前端JS没有的）很多拓展的对象。<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;前端js：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1.ES原生对象：String,Number,Boolean,Math,Date,Error,Function,object,Array,RegExp…<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;2.BOM（浏览器模型）&amp;DOM（文件对象模型）<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;3.自定义对象<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Node.js：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1.ES原生对象<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;2.Node.js内置对象（没有BOM（浏览器模型）&amp;DOM（文件对象模型））<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;3.大量的第三方对象<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;4.自定义对象<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Node.js可以编写独立的服务器应用，无需借助于其他的web服务器</p>
-<pre><code>Node.js的意义：
-    1.执行效率比PHP/JSP/JAVA要快
-    2.用一种语言统一了前端和后台的开发
+<h2 id="2-Node-js概述"><a href="#2-Node-js概述" class="headerlink" title="2.Node.js概述"></a>2.Node.js概述</h2><h3 id="（1）官网：https-nodejs-org。"><a href="#（1）官网：https-nodejs-org。" class="headerlink" title="（1）官网：https://nodejs.org。"></a>（1）<a href="https://nodejs.org" target="_blank" rel="noopener">官网：https://nodejs.org</a>。</h3><p>在官网我们可以下载最新的<code>Nodejs</code>，目前最新版本是：8.10.0 LTS（可以简单理解为稳定版本，部署生产项目使用此版本）和9.9.0 Current（最新版本，相对不是很稳定的版本，尝试一些新功能等都可以使用此版本），我们还可以查看对应的api文档。  </p>
+<h3 id="（2）Node-js是什么"><a href="#（2）Node-js是什么" class="headerlink" title="（2）Node.js是什么"></a>（2）Node.js是什么</h3><ul>
+<li>Node.js是使用C/C++编写的基于Chrome V8的JS运行时环境。  </li>
+<li>Node.js是基于Chrome V8开发的；  </li>
+<li>有V8的一些功能，同时还拓展了一些其他功能；  </li>
+<li>不像Chrome中的console有window、document等dom和bom的对象;    </li>
+</ul>
+<h3 id="（3）Node-js是一门基于ECMAScript开发的服务器端语言（php等也是服务器语言），提供了（前端JS没有的）很多拓展的对象。"><a href="#（3）Node-js是一门基于ECMAScript开发的服务器端语言（php等也是服务器语言），提供了（前端JS没有的）很多拓展的对象。" class="headerlink" title="（3）Node.js是一门基于ECMAScript开发的服务器端语言（php等也是服务器语言），提供了（前端JS没有的）很多拓展的对象。"></a>（3）Node.js是一门基于ECMAScript开发的服务器端语言（php等也是服务器语言），提供了（前端JS没有的）很多拓展的对象。</h3><ul>
+<li><p>前端js：<br>1.ES原生对象：String,Number,Boolean,Math,Date,Error,Function,object,Array,RegExp…<br>2.BOM（浏览器模型）&amp;DOM（文件对象模型）<br>3.自定义对象  </p>
+</li>
+<li><p>Node.js：<br>1.ES原生对象<br>2.Node.js内置对象（没有BOM（浏览器模型）&amp;DOM（文件对象模型））<br>3.大量的第三方对象<br>4.自定义对象</p>
+</li>
+</ul>
+<p><strong>Node.js可以编写独立的服务器应用，无需借助于其他的web服务器</strong>  </p>
+<ul>
+<li>Node.js的意义：<br>1.执行效率比PHP/JSP/JAVA要快<br>2.用一种语言统一了前端和后台的开发  </li>
+</ul>
+<p><strong>特点：</strong>  </p>
+<ul>
+<li>1.单线程逻辑处理  </li>
+<li>2.非阻塞  </li>
+<li>3.异步I/O处理  </li>
+<li>4.事件驱动编程    </li>
+</ul>
+<h2 id="3-Node-js的两种运行方式"><a href="#3-Node-js的两种运行方式" class="headerlink" title="3. Node.js的两种运行方式"></a>3. Node.js的两种运行方式</h2><ul>
+<li>1.交互模式—用于测试<br>读取用户的输入、执行运算、输出结果、继续下一个循环。如在命令行下的</li>
+</ul>
+<ul>
+<li>2.脚本模式—用于开发<br>把要执行的所有js语句编写在一个独立的文件中，一次性的提交给nodejs处理。此文件可以没有后缀（默认就是js文件）<br>执行方法：node xx/xxx/xxx.js</li>
+</ul>
+<h2 id="4-IDE–webstorm"><a href="#4-IDE–webstorm" class="headerlink" title="4.IDE–webstorm"></a>4.IDE–webstorm</h2><p>编码工具，自动检测安装的node，编写好文件后，右击–Run xxx即可      </p>
+<p>查看JavaScript的版本：<br>file–setting–Language &amp; Framew–JavaScript</p>
+<h2 id="5-Node-js的基础语法及ES6新特性"><a href="#5-Node-js的基础语法及ES6新特性" class="headerlink" title="5. Node.js的基础语法及ES6新特性"></a>5. Node.js的基础语法及ES6新特性</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><ul>
+<li><p>（1）原始类型<br>string,number,boolean,null…<br>原始类型数据直接赋值即可  </p>
+</li>
+<li><p>（2）引用类型<br>ES原生对象、Node.js内置对象、自定义对象等<br>引用类型通常需要使用new关键字创建  </p>
+</li>
+</ul>
+<h3 id="2-模板字符串"><a href="#2-模板字符串" class="headerlink" title="2.模板字符串"></a>2.模板字符串</h3><p>ES6中提供的一种新的字符串形式<br>（1）使用模板字符串定义字符串，数据可以实现换行<br>（2）可以使用${}拼接变量，并且可以执行运算  </p>
+<h3 id="3-严格模式"><a href="#3-严格模式" class="headerlink" title="3.严格模式"></a>3.严格模式</h3><p>ES5中新增一种比普通模式更为严格的js运算模式<br>使用方法；<br>（1）在整个脚本文件中启用严格模式<br>在脚本文件的开头：<code>&quot;use strict&quot;</code>;<br>用于新项目<br>（2）在单个函数内启动严格模式  </p>
+<pre><code>function info(){  
+    &quot;use strict&quot;;  
+    ...  
+}    
+</code></pre><p>用于老项目维护等  </p>
+<p>规则：  </p>
+<ul>
+<li>（1）常量不可修改，修改是非法的–将静默失败升级为错误<br>node.js版本不一样执行结果不一样  <ul>
+<li>（2）不允许对未声明的变量赋值    </li>
+<li>（3）匿名函数的this不再指向全局  </li>
+</ul>
+</li>
+</ul>
+<h3 id="4-变量的作用域"><a href="#4-变量的作用域" class="headerlink" title="4.变量的作用域"></a>4.变量的作用域</h3><p>全局作用域、局部作用域、块级作用域（ES6中专有）<br>块级作用域：只有在当前代码块中使用<br>代码块：任何一个{}都是一个代码块，if/for/while…<br>代码块中使用”let”声明块级作用域变量，出了代码块不再可用。使用let需要启用严格模式。  </p>
+<h3 id="5-循环结构"><a href="#5-循环结构" class="headerlink" title="5.循环结构"></a>5.循环结构</h3><p>（1）for…of…(ES6)<br>遍历数组的元素值</p>
+<h3 id="6-函数"><a href="#6-函数" class="headerlink" title="6.函数"></a>6.函数</h3><p>匿名函数的自调;</p>
+<p>=&gt;箭头函数  </p>
+<pre><code>(()=&gt;{
 
-特点：
-    1.单线程逻辑处理
-    2.非阻塞
-    3.异步I/O处理
-    4.事件驱动编程
-</code></pre><h2 id="3-Node-js的两种运行方式"><a href="#3-Node-js的两种运行方式" class="headerlink" title="3. Node.js的两种运行方式"></a>3. Node.js的两种运行方式</h2><p>&ensp;&ensp;&ensp;&ensp;1.交互模式—用于测试<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;读取用户的输入、执行运算、输出结果、继续下一个循环。如在命令行下的<br>&ensp;&ensp;&ensp;&ensp;2.脚本模式—用于开发<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;把要执行的所有js语句编写在一个独立的文件中，一次性的提交给nodejs处理。此文件可以没有后缀（默认就是js文件）<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;执行方法：node xx/xxx/xxx.js  </p>
-<h2 id="4-IDE–webstorm"><a href="#4-IDE–webstorm" class="headerlink" title="4.IDE–webstorm"></a>4.IDE–webstorm</h2><p>&ensp;&ensp;&ensp;&ensp;编码工具，自动检测安装的node，编写好文件后，右击–Run xxx即可      </p>
-<p>&ensp;&ensp;&ensp;&ensp;查看JavaScript的版本：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;file–setting–Language &amp; Framew–JavaScript  </p>
-<h2 id="5-Node-js的基础语法及ES6新特性"><a href="#5-Node-js的基础语法及ES6新特性" class="headerlink" title="5. Node.js的基础语法及ES6新特性"></a>5. Node.js的基础语法及ES6新特性</h2><p>&ensp;&ensp;&ensp;&ensp;1.数据类型<br>&ensp;&ensp;&ensp;&ensp;（1）原始类型<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;string,number,boolean,null…<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;原始类型数据直接赋值即可<br>&ensp;&ensp;&ensp;&ensp;（2）引用类型<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;ES原生对象、Node.js内置对象、自定义对象等<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;引用类型通常需要使用new关键字创建<br>&ensp;&ensp;&ensp;&ensp;2.模板字符串<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;ES6中提供的一种新的字符串形式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（1）使用模板字符串定义字符串，数据可以实现换行<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（2）可以使用${}拼接变量，并且可以执行运算<br>&ensp;&ensp;&ensp;&ensp;3.严格模式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;ES5中新增一种比普通模式更为严格的js运算模式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;使用方法；<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（1）在整个脚本文件中启用严格模式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;在脚本文件的开头：”use strict”;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;用于新项目<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（2）在单个函数内启动严格模式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;function info(){<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;”use strict”;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;…<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;用于老项目维护等<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;规则：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（1）常量不可修改，修改是非法的–将静默失败升级为错误<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;node.js版本不一样执行结果不一样<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（2）不允许对未声明的变量赋值<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（3）匿名函数的this不再指向全局<br>&ensp;&ensp;&ensp;&ensp;4.变量的作用域<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;全局作用域、局部作用域、块级作用域（ES6中专有）<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;块级作用域：只有在当前代码块中使用<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;代码块：任何一个{}都是一个代码块，if/for/while…<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;代码块中使用”let”声明块级作用域变量，出了代码块不再可用。使用let需要启用严格模式。<br>&ensp;&ensp;&ensp;&ensp;5.循环结构<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（1）for…of…(ES6)<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;遍历数组的元素值<br>&ensp;&ensp;&ensp;&ensp;6.函数<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;匿名函数的自调;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;=&gt;箭头函数<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;(()=&gt;{<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;})();<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;箭头函数只用于匿名函数<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;箭头函数中不存在arguments对象<br>&ensp;&ensp;&ensp;&ensp;7.对象<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;创建对象的方式：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（1）对象直接量<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（2）构造函数方式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（3）原型继承方式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（4）class方式–ES6新增的<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;class，类：是一组相似对象的属性和行为的抽象集合。（描述一类事物统一的属性和功能的程序结构）<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;事物的属性是class的属性，事物的功能是class的方法<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;使用class方式创建自定义对象时，必须启用严格模式<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;”use strict”;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;class Emp{<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;constructor(ename,salary){//声明一个构造函数<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;this.ename=ename;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;this.salary=salary;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;work(){//定义一个方法,和constructor并列<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return `${this.ename} is working.`;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;sal(){<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return `${this.ename}’s salary is ${this.salary}`;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}  </p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;实现继承：<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;//实现继承  </p>
-<pre><code>class Programmer extends Emp{
+})();  
+</code></pre><p>箭头函数只用于匿名函数<br>箭头函数中不存在arguments对象</p>
+<h3 id="7-对象"><a href="#7-对象" class="headerlink" title="7.对象"></a>7.对象</h3><p>创建对象的方式：  </p>
+<ul>
+<li>（1）对象直接量  </li>
+<li>（2）构造函数方式  </li>
+<li>（3）原型继承方式  </li>
+<li>（4）class方式–ES6新增的  </li>
+</ul>
+<p>class，类：是一组相似对象的属性和行为的抽象集合。（描述一类事物统一的属性和功能的程序结构）<br>事物的属性是class的属性，事物的功能是class的方法<br>使用class方式创建自定义对象时，必须启用严格模式  </p>
+<pre><code>&quot;use strict&quot;;
+class Emp{
+    constructor(ename,salary){//声明一个构造函数
+    this.ename=ename;
+    this.salary=salary;
+}
+work(){//定义一个方法,和constructor并列
+        return `${this.ename} is working.`;
+    }
+sal(){
+    return `${this.ename}&apos;s salary is ${this.salary}`;
+    }
+}
+</code></pre><p>实现继承：  </p>
+<pre><code>//实现继承
+class Programmer extends Emp{
     constructor(ename,salary,skills){
         super(ename,salary);
         this.skills=skills;
@@ -101,311 +172,242 @@
 var p1=new Programmer(&quot;Jack&quot;,8800,&quot;PHP&amp;MYSQL&quot;);
 console.log(p1.ename);
 console.log(p1.work());
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;8.全局对象  </p>
-<pre><code>Node.js中的全局对象是Global  
-    操作：  
-        在Chrome--console中操作；  
-        写入html操作；  
-        在node环境中  
-            cmd的交互环境--可以；  
-            在脚本中执行--不可以；  
-在交互模式下，声明的全局变量是global的成员--会出现全局对象的污染，及多加一些全局变量  
-在脚本模式下，声明的全局变量不是global的成员--避免了全局变量的污染  
-Global对象的成员属性和成员方法：  
-    console用于向stdout（标准输出）和stderr（标准错误）输出信息。
-    console.log()   //向stdout输出日志信息
-    console.info()  //同上
-    console.error() //向stderr输出错误信息
-    console.warn()  //同上
-    console.trace() //向stderr输出栈轨迹信息
-    console.dir()   //向stdout输出指定对象的字符串表示
-    console.assert() //断言，为真的断言，错误信息不回输出；为假的断言，会抛出错误对象，输出错误信息，并且终止脚本的运行，可以自定义错误信息
-    console.time() console.timeEnd()   //测试代码的执行时间，成对出现
+</code></pre><h3 id="8-全局对象"><a href="#8-全局对象" class="headerlink" title="8.全局对象"></a>8.全局对象</h3><p>Node.js中的全局对象是Global<br>操作：  </p>
+<pre><code>在Chrome--console中操作；
+写入html操作；
+在node环境中
+cmd的交互环境--可以；
+在脚本中执行--不可以；  
+</code></pre><p>在交互模式下，声明的全局变量是global的成员–会出现全局对象的污染，及多加一些全局变量<br>在脚本模式下，声明的全局变量不是global的成员–避免了全局变量的污染  </p>
+<p>Global对象的成员属性和成员方法：  </p>
+<ul>
+<li>console用于向stdout（标准输出）和stderr（标准错误）输出信息。  </li>
+<li>console.log()   //向stdout输出日志信息  </li>
+<li>console.info()  //同上  </li>
+<li>console.error() //向stderr输出错误信息  </li>
+<li>console.warn()  //同上  </li>
+<li>console.trace() //向stderr输出栈轨迹信息  </li>
+<li>console.dir()   //向stdout输出指定对象的字符串表示  </li>
+<li>console.assert() //断言，为真的断言，错误信息不回输出；为假的断言，会抛出错误对象，输出错误信息，并且终止脚本的运行，可以自定义错误信息  </li>
+<li>console.time() console.timeEnd()   //测试代码的执行时间，成对出现  </li>
+</ul>
+<p>注意：console中的成员方法是异步的，输出顺序和书写书写不一定完全一致。</p>
+<h3 id="9-process进程"><a href="#9-process进程" class="headerlink" title="9.process进程"></a>9.process进程</h3><ul>
+<li>process.arch   //获取cpu架构类型  </li>
+<li>process.platform   //获取操作系统类型  </li>
+<li>process.env  //获取操作系统环境变量  </li>
+<li>process.cwd()  //获取当前所在工作目录  </li>
+<li>process.execPath  //获取解析器所在目录 </li>
+<li>process.versions  //获取Node.js的版本 </li>
+<li>process.uptime()  //获取Node.js解析器运行时间（s） </li>
+<li>process.memoryUsage()  //获取内存信息 </li>
+<li>process.pid   //获取进程id号 </li>
+<li>process.kill(pid) //向指定进程id号发送退出信号 </li>
+</ul>
+<h3 id="10-定时器"><a href="#10-定时器" class="headerlink" title="10.定时器"></a>10.定时器</h3><ul>
+<li>global.setTimeout()  //一次性定时器  </li>
+<li>global.setInterval()  //周期性定时器  </li>
+<li>global.setImmediate()   //在下次事件循环开始之前立即执行的定时器  </li>
+<li>process.nextTick()   //本次事件循环结束之后立即执行的定时器  </li>
+</ul>
+<h3 id="11-模块系统："><a href="#11-模块系统：" class="headerlink" title="11.模块系统："></a>11.模块系统：</h3><p>Node.js中使用“Module（模块）”来规划不同的功能对象。<br>模块的分类：    </p>
+<ul>
+<li>（1）核心模块–Node.js的内置模块（有些不需引入可以直接使用(console)，有些需要引入（fs））  <ul>
+<li>（2）第三方模块  </li>
+<li>（3）自定义模块<br>每一个被加载的js文件对应一个模块对象，包含相应的功能和函数。<br>模块中声明的变量或函数的作用域叫做“模块作用域”，这些变量和函数都不是global的成员，默认只能在当前的js文件（当前模块）中使用。<br>Node.js启动时运行的第一个模块叫做“主模块”–main module，也是自身模块。<br>获取主模块对象：<br>process.mainModule<br>require.main<br>除主模块之外的模块都称为子模块。<br>默认情况下：某一个模块不能直接使用其他模块中封装的数据，但是每个模块可以导出（exports）自己内部的对象供其他模块使用，也可以引入（require）并使用其他模块导出的对象。  </li>
+</ul>
+</li>
+</ul>
+<p>每一个模块内部都可以使用一个变量：module，指向当前模块自己。  </p>
+<p>//判断当前模块是否主模块<br>console.log(require.main==module);  </p>
+<p>模块的引入：require()<br>(在交互模式下，Node.js自带的模块无需引入，直接使用)<br>导出模块中的属性和方法供其他模块使用：exports  </p>
+<p>预定义的模块作用域成员：  </p>
+<pre><code>__dirname        //当前模块文件所在的目录
+__filename       //当前模块文件所在的目录和文件名
+module           //指向当前模块的应用
+module.exports   //指向当前模块中待导出的供其他模块使用的对象
+exports          //指向module.exports对象的引用
+require          //引入其他模块，使用其他模块的module.exports对象
+</code></pre><p>模块默认代码。底层实现的，是自动加上去的  </p>
+<pre><code>(function (exports,require,module,__filename,__dirname){
+    // module.exports={ };            --模块默认代码 1/3
+    // exports=module.exports;        --模块默认代码 2/3
 
-
-    注意：console中的成员方法是异步的，输出顺序和书写书写不一定完全一致。
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;9.process进程  </p>
-<pre><code>process.arch   //获取cpu架构类型
-process.platform   //获取操作系统类型
-process.env  //获取操作系统环境变量
-process.cwd()  //获取当前所在工作目录
-process.execPath  //获取解析器所在目录
-process.versions  //获取Node.js的版本
-process.uptime()  //获取Node.js解析器运行时间（s）
-process.memoryUsage()  //获取内存信息
-process.pid   //获取进程id号
-process.kill(pid) //向指定进程id号发送退出信号
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;10.定时器</p>
-<pre><code>global.setTimeout()  //一次性定时器
-global.setInterval()  //周期性定时器
-global.setImmediate()   //在下次事件循环开始之前立即执行的定时器
-process.nextTick()   //本次事件循环结束之后立即执行的定时器
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;11.模块系统：</p>
-<pre><code>Node.js中使用“Module（模块）”来规划不同的功能对象。
-模块的分类：
-    （1）核心模块--Node.js的内置模块（有些不需引入可以直接使用(console)，有些需要引入（fs））
-    （2）第三方模块
-    （3）自定义模块
-    每一个被加载的js文件对应一个模块对象，包含相应的功能和函数。
-    模块中声明的变量或函数的作用域叫做“模块作用域”，这些变量和函数都不是global的成员，默认只能在当前的js文件（当前模块）中使用。
-    Node.js启动时运行的第一个模块叫做“主模块”--main module，也是自身模块。
-    获取主模块对象：
-        process.mainModule
-        require.main
-    除主模块之外的模块都称为子模块。
-    默认情况下：某一个模块不能直接使用其他模块中封装的数据，但是每个模块可以导出（exports）自己内部的对象供其他模块使用，也可以引入（require）并使用其他模块导出的对象。
-
-    每一个模块内部都可以使用一个变量：module，指向当前模块自己。
-
-    //判断当前模块是否主模块
-    console.log(require.main==module);
-
-    模块的引入：require()
-    (在交互模式下，Node.js自带的模块无需引入，直接使用)
-    导出模块中的属性和方法供其他模块使用：exports
-
-    预定义的模块作用域成员：
-    __dirname        //当前模块文件所在的目录
-    __filename       //当前模块文件所在的目录和文件名
-    module           //指向当前模块的应用
-    module.exports   //指向当前模块中待导出的供其他模块使用的对象
-    exports          //指向module.exports对象的引用
-    require          //引入其他模块，使用其他模块的module.exports对象
-
-    模块默认代码。底层实现的，是自动加上去的
-    (function (exports,require,module,__filename,__dirname){
-        // module.exports={ };            --模块默认代码 1/3
-        // exports=module.exports;        --模块默认代码 2/3
-
-        //求圆的面积和周长
-        const PI=3.14;
-        var size=function(r){
-            return PI*r*r;
-        };
-        var perimeter=function(r){
-            return 2*PI*r;
-        };
+    //求圆的面积和周长
+    const PI=3.14;
+    var size=function(r){
+    return PI*r*r;
+    };
+    var perimeter=function(r){
+    return 2*PI*r;
+    };
 
     // console.log(size(6));   //本文件测试
 
     //导出
-        exports.size=size;
-        exports.p=PI;
+    exports.size=size;
+    exports.p=PI;
 
-        // return module.exports;    --模块默认代码  3/3
-    }
+    // return module.exports;    --模块默认代码  3/3
+}
+</code></pre><p>自定义模块：<br>（1）文件模块<br>没有后缀的文件模块，被作为js文件加载<br>.js后缀的文件模块，被作为js文件加载<br>.json后缀文件模块，被作为JSON字符串加载，会自动解析为对象<br>.node后缀文件模块，会被作为C/C++二进制加载  </p>
+<p>（2）目录模块–目录模块引入时只需引入目录名即可<br>包含一个package.json文件的目录模块<br>“main”:”xxx”  –指向该模块的主模块<br>包含index.js文件的目录模块<br>包含index.json文件的目录模块<br>包含index.node文件的目录模块  </p>
+<p>应该包含一个package.json文件，如果没有就去搜索index.js文件等依次搜索，名字是不能变更的，否则无法使用目录里面的文件了  </p>
+<p>放到node_modules目录下的模块，引入的时候直接写模块名称即可，不必指定路径。node_modules目录不必放在当前js文件的目录下，可以放置在node目录的任何一个地方，nodejs会一级一级从当前js文件所在目录往上找  </p>
+<p>模块查找的顺序：<br>（1）文件/目录模块的缓存<br>（2）原生模块的缓存<br>（3）原生模块<br>（4）文件/目录模块  </p>
+<h3 id="12-包和npm"><a href="#12-包和npm" class="headerlink" title="12.包和npm"></a>12.包和npm</h3><p>包（package）是根据CommonJS规范，对模块进行的标准封装。<br>包规范：  </p>
+<ul>
+<li>包是一个目录  </li>
+<li>目录中包含一个package.json包说明文件，存放在包顶级目录下，此文件里面的字段可以网上搜索对应的说明  </li>
+<li>目录中包含js文件，如有index.js，可以放到包顶级目录下，其它js文件，放到lib目录下  </li>
+<li>二进制文件放到bin目录下  </li>
+<li>文档放到doc目录下  </li>
+<li>单元测试文件放到test目录下  </li>
+</ul>
+<p>CommonJS规范要求，包应该位于当前目录或者父目录下的node_modules文件夹下，require函数由近及远依次查找  </p>
+<p>NPM包管理器<br><a href="www.npmjs.com">npm官网：www.npmjs.com</a><br>npm是Node.js的包管理工具，用于下载、安装、升级、删除包或者发布并维护包<br>Node.js的安装文件中，已经集成了npm<br>下载第三方包：<br>（1）安装在当前项目目录下<br><code>npm install 报名(mysql)</code><br>会安装到指定目录的node_modules文件夹下（如果nmp比较高版本如6.9.x会把对应的依赖包也下载）<br>查看目标路径：<code>npm root</code><br>（2）安装到全局<br><code>npm install 包名 -g</code><br>会安装到npm的目录下<br>查看目标路径：<code>npm root -g</code><br>列出已经安装的包：<code>npm ls 包名</code><br>更新已经安装的包：<code>npm update 包名</code><br>卸载已经安装的包：<code>npm uninstall 包名</code>  </p>
+<p>生成包：<br>使用<code>npm init</code>目录，可以在当前目录下生成一个package.json文件  </p>
+<p>发布包：<br>（1）官网注册用户<br>（2）使用<code>npm adduser</code>命令注册或登录<br>(3)进入包所在的目录中配置完成包目录，使用<code>npm publish</code>命令发布包<br>（4）进入官网搜索以及上传的包  </p>
+<h3 id="13-Node-js核心模块"><a href="#13-Node-js核心模块" class="headerlink" title="13.Node.js核心模块"></a>13.Node.js核心模块</h3><h4 id="1-console"><a href="#1-console" class="headerlink" title="1.console"></a>1.console</h4><ul>
+<li>global.consoel 用于向stdout和stderr输出日志信息  </li>
+<li>Console.class console模块中的Console构造函数，用于向任意指定的输出流（文件）中输入信息。  </li>
+</ul>
+<h4 id="2-Query-String"><a href="#2-Query-String" class="headerlink" title="2.Query String"></a>2.Query String</h4><p>提供了处理URI中“查询字符串”部分的相关操作<br>–<a href="http://www.baidu.com/index.html?a=1&amp;b2#section" target="_blank" rel="noopener">http://www.baidu.com/index.html?a=1&amp;b2#section</a>  </p>
+<ul>
+<li>parse()  //从查询字符串中解析出数据对象，参数为一个查询字符串  </li>
+<li>stringify()   //将一个数据对象反向解析为一个查询字符串格式，参数1，为一个对象；参数2，可选，指定分割符；参数3，可选，指定键值之间分割符  </li>
+</ul>
+<h4 id="3-URL模块"><a href="#3-URL模块" class="headerlink" title="3.URL模块"></a>3.URL模块</h4><p>提供了处理url中不同部分的相关操作               </p>
+<ul>
+<li>parse()      //解析出url的各个组成部分，参数2，可选，若为true，可以见查询字符串部分解析为对象  </li>
+<li>format()     //将对象反向格式为url格式  </li>
+<li>resolve()    //根据基地址和相对地址解析出目标地址，参数1，基地址；参数2，相对地址  </li>
+</ul>
+<h4 id="4-Path模块"><a href="#4-Path模块" class="headerlink" title="4.Path模块"></a>4.Path模块</h4><p>提供了对文件路径操作的方法  </p>
+<ul>
+<li>parse()     //解析一个路径，参数为路径字符串  </li>
+<li>format()    //将路径对象格式化为路径字符串，参数为对象  </li>
+<li>join()      //用于连接路径，会正确的使用当前系统的路径分隔符  </li>
+<li>resolv()      //根据基础路径，解析出目标路径的绝对路径  </li>
+<li>relative()    //根据基础路径，获取目标路径与其的相对关系  </li>
+</ul>
+<h4 id="5-DNS模块"><a href="#5-DNS模块" class="headerlink" title="5.DNS模块"></a>5.DNS模块</h4><p>提供了域名和IP地址的双向解析功能。  </p>
+<ul>
+<li>lookup()   //把一个域名解析成一个ip地址，从操作系统中查询（缓存）  </li>
+<li>resolve()  //把一个域名解析成一个DNS的记录解析数组，从DNS服务器中查询  </li>
+<li>reverse()   //把一个ip地址反向解析为一组域名  </li>
+</ul>
+<h4 id="6-Util工具模块"><a href="#6-Util工具模块" class="headerlink" title="6.Util工具模块"></a>6.Util工具模块</h4><ul>
+<li>format()  //使用带占位符方式格式化字符串    </li>
+<li>inspect()  //返回一个对象的字符串表示  </li>
+<li>inherits()  //实现构造方法之间的继承  </li>
+</ul>
+<h4 id="7-Buffer"><a href="#7-Buffer" class="headerlink" title="7.Buffer"></a>7.Buffer</h4><p>缓冲区，一块专用于存储数据的内存区域，与string类型相对应，用于存储二进制数据。  </p>
+<ul>
+<li>Buffer对象的实例，可以通过读取文件获取，也可以手动创建。  </li>
+<li>Buffer是Global的成员，无需require引入  </li>
+</ul>
+<h4 id="8-fs模块–文件系统模块"><a href="#8-fs模块–文件系统模块" class="headerlink" title="8.fs模块–文件系统模块"></a>8.fs模块–文件系统模块</h4><p>fs模块提供了文件的读写、改名、删除、遍历目录等操作。<br>fs模块中大多数方法都带有同步和异步两种。<br>所有的异步方法都有一个回调函数，此回调函数的第一个参数都是一个错误对象。<br>异步方法中如果错误的话，会静默失败，不会自己抛出error，通常情况下都需要自己手动处理。<br>常用Class：  </p>
+<ul>
+<li>fs.Stats  //文件或目录的统计信息描述对象  </li>
+<li>fs.ReadStream  //stream.Readable接口的实现对象  </li>
+<li>fs.WriteStream //stream.Writeerable接口的实现对象  </li>
+<li>fs.FSWatcher   //可用于监视文件修改的文件监视器对象  </li>
+</ul>
+<p>常用的方法：  </p>
+<ul>
+<li>fs.stat()  //用于返回一个文件或目录的统计信息对象(fs.Stats对象)  </li>
+<li>fs.mkdir()  //创建目录  </li>
+<li>fs.rmdir()   //删除目录  </li>
+<li>fs.dir()   //读取目录下的内容  </li>
+<li>fs.readFile()  //读取文件内容  </li>
+<li>fs.writeFile()  //写文件  </li>
+<li>fs.appendFile()  //追加  </li>
+<li>fs.rename  </li>
+<li>fs.unlink()    //删除  </li>
+</ul>
+<p><code>---------------------------</code>  </p>
+<ul>
+<li>fs.stat()   &amp;  fs.statSync()    //用于返回一个文件或目录的统计信息对象(fs.Stats对象)  </li>
+<li>fs.Stats对象的方法：  </li>
+<li>stats.isFile();  </li>
+<li>stats.isDirectory();  </li>
+</ul>
+<p><code>---------------------------</code>  </p>
+<p>操作目录  </p>
+<ul>
+<li>fs.mkdir()  &amp;  fs.mkdirSync()  </li>
+<li>fs.redir()  &amp;  fs.redirSync()  </li>
+<li>fs.readdir() &amp;  fs.readdirSync()   //读取目录下内容  </li>
+</ul>
+<p><code>---------------------------</code>  </p>
+<p>操作文件：  </p>
+<ul>
+<li>fs.readFile()  &amp; fs.readFileSync()//读取文件内容  </li>
+<li>fs.writeFile()  &amp;  fs.writeFileSync() //写文件  </li>
+<li>fs.appendFile()  &amp;  fs.appendFileSync() //追加  </li>
+<li>fs.unlink()  &amp; fs.unlinkSync()    //删除  </li>
+<li>fs.rename()    &amp;    fs.renameSync()  </li>
+</ul>
+<h4 id="9-HTTP模块"><a href="#9-HTTP模块" class="headerlink" title="9.HTTP模块"></a>9.HTTP模块</h4><p>用于构建使用HTTP协议的客户端应用或服务器应用。<br>创建并发起请求消息，等待并解析响应消息–实现web客户端<br>接收并解析请求消息，构建并发送响应消息–实现web服务器<br>常用对象：  </p>
+<ul>
+<li>http.ClientRequest  </li>
+<li>http.Server  </li>
+<li>http.ServerResponse  </li>
+<li>http.IncomingMessage  </li>
+<li>常用方法：  </li>
+<li>http.createServer  </li>
+<li>http.get()  </li>
+<li>http.request()  </li>
+</ul>
+<p><strong>1.http.request</strong><br>是一个HTTP客户端工具<br>用于向web服务器发起一个http请求，并获取响应数据<br>有两个主要方法：  </p>
+<ul>
+<li>http.get()  </li>
+<li>http.request()  </li>
+</ul>
+<p>该方法返回一个http.ClientRequest对象，用来描述请求信息，回调函数的参数是一个  http.IncomingMessage对象，封装了响应的数据。<br>http.ClientRequest对象常用方法：  </p>
+<ul>
+<li>write():向服务器追加请求主体数据  </li>
+<li>end():提交请求消息主体结束  </li>
+<li>setTimeout():设置请求消息超时时间  </li>
+<li>abort():终止请求  </li>
+<li>http.ClientRequest对象常用事件：  </li>
+<li>response:接收到响应消息  </li>
+<li>abort:请求终止事件  </li>
+<li>error:请求发生错误  </li>
+</ul>
+<p>注意：使用get()方法不需要手动调用end()方法，使用request()的时候，必须手动调用end()方法。  </p>
+<p><strong>2.http.server</strong><br>http.server是一个基于事件的http服务器<br>用于创建web服务器，接收客户端的请求，返回响应消息。所有的请求都被封装到独立的事件当中，我们只需对它的事件编写相应的处理程序，即可实现http的所有功能。<br>方法：http.createServer()<br>用于创建web服务器应用，可以接收客户端请求，并返回响应消息。<br>该方法的返回值是一个对象http.Server。<br>http.Server对象的常用方法：  </p>
+<ul>
+<li>listen():启动服务器，监听指定的服务端口  </li>
+<li>close():停止服务器的运行  </li>
+<li>setTimeout():设置服务器响应消息超时时间  </li>
+<li>http.Server对象的常用事件：  </li>
+<li>connection:出现客户端连接  </li>
+<li>request:接收到请求消息    </li>
+<li>close:服务器停止事件  </li>
+<li>error:响应发生错误  </li>
+<li>http.Server对象的request事件回调函数中有两个参数<br>第一个参数，http.IncomingMessage对象，封装着客户端提交的请求消息数据<br>第二个参数，http.ServerResponse对象，用于构建向客户端输出的响应消息数据。  </li>
+</ul>
+<h4 id="10-mysql模块"><a href="#10-mysql模块" class="headerlink" title="10.mysql模块"></a>10.mysql模块</h4><p>方法：  </p>
+<ul>
+<li>createConnection()  //创建一个mysql服务器的连接，该方法返回一个连接对象，该对象有一下常用方法：</li>
+<li>connect()  //连接数据库</li>
+<li>query()    //提交sql语句给mysql服务器执行</li>
+<li>end()    //断开mysql服务器的连接</li>
+</ul>
+<p>命令：<br>cmd环境：  </p>
+<ul>
+<li>mysql -h127.0.0.1 -uroot -p -P3306</li>
+<li>show databases;</li>
+<li>source xxxxx.sql;   –执行sql语句</li>
+<li>user xxxx;</li>
+<li>show tables;</li>
+<li>select * from xxx;</li>
+</ul>
+<h4 id="express模块："><a href="#express模块：" class="headerlink" title="express模块："></a>express模块：</h4><p>可以方便的实现服务器的路由、发送和接收http请求，返回响应、发送和接收cookie以及实现模板引擎功能。  </p>
+<p>app.method(path,[middleware],function(req,res){})  </p>
 
-    自定义模块：
-        （1）文件模块
-                没有后缀的文件模块，被作为js文件加载
-                .js后缀的文件模块，被作为js文件加载
-                .json后缀文件模块，被作为JSON字符串加载，会自动解析为对象
-                .node后缀文件模块，会被作为C/C++二进制加载
-
-        （2）目录模块--目录模块引入时只需引入目录名即可
-                包含一个package.json文件的目录模块
-                    &quot;main&quot;:&quot;xxx&quot;  --指向该模块的主模块
-                包含index.js文件的目录模块
-                包含index.json文件的目录模块
-                包含index.node文件的目录模块
-
-                应该包含一个package.json文件，如果没有就去搜索index.js文件等依次搜索，名字是不能变更的，否则无法使用目录里面的文件了
-
-        放到node_modules目录下的模块，引入的时候直接写模块名称即可，不必指定路径。node_modules目录不必放在当前js文件的目录下，可以放置在node目录的任何一个地方，nodejs会一级一级从当前js文件所在目录往上找
-
-        模块查找的顺序：
-            （1）文件/目录模块的缓存
-            （2）原生模块的缓存
-            （3）原生模块
-            （4）文件/目录模块
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;12.包和npm</p>
-<pre><code>包（package）是根据CommonJS规范，对模块进行的标准封装。
-包规范：
-    -包是一个目录
-    -目录中包含一个package.json包说明文件，存放在包顶级目录下，此文件里面的字段可以网上搜索对应的说明
-    -目录中包含js文件，如有index.js，可以放到包顶级目录下，其它js文件，放到lib目录下
-    -二进制文件放到bin目录下
-    -文档放到doc目录下
-    -单元测试文件放到test目录下
-CommonJS规范要求，包应该位于当前目录或者父目录下的node_modules文件夹下，require函数由近及远依次查找
-
-NPM包管理器
-    npm官网：www.npmjs.com
-    npm是Node.js的包管理工具，用于下载、安装、升级、删除包或者发布并维护包
-    Node.js的安装文件中，已经集成了npm
-    下载第三方包：
-        （1）安装在当前项目目录下
-                npm install 报名(mysql)
-                会安装到指定目录的node_modules文件夹下（如果nmp比较高版本如6.9.x会把对应的依赖包也下载）
-                查看目标路径：npm root
-        （2）安装到全局
-                npm install 包名 -g
-                会安装到npm的目录下
-                查看目标路径：npm root -g
-        列出已经安装的包：npm ls 包名
-        更新已经安装的包：npm update 包名
-        卸载已经安装的包：npm uninstall 包名
-
-    生成包：
-        使用npm init目录，可以在当前目录下生成一个package.json文件
-
-    发布包：
-        （1）官网注册用户
-        （2）使用npm adduser命令注册或登录
-         (3)进入包所在的目录中配置完成包目录，使用npm publish命令发布包
-        （4）进入官网搜索以及上传的包
-</code></pre><p>&ensp;&ensp;&ensp;&ensp;13.Node.js核心模块    </p>
-<pre><code>1.console
-global.consoel 用于向stdout和stderr输出日志信息
-Console.class console模块中的Console构造函数，用于向任意指定的输出流（文件）中输入信息。
-
-2.Query String
-提供了处理URI中“查询字符串”部分的相关操作
-   --http://www.baidu.com/index.html?a=1&amp;b2#section
-parse()  //从查询字符串中解析出数据对象，参数为一个查询字符串
-stringify()   //将一个数据对象反向解析为一个查询字符串格式，参数1，为一个对象；参数2，可选，指定分割符；参数3，可选，指定键值之间分割符
-
-3.URL模块
-提供了处理url中不同部分的相关操作
-parse()      //解析出url的各个组成部分，参数2，可选，若为true，可以见查询字符串部分解析为对象
-format()     //将对象反向格式为url格式
-resolve()    //根据基地址和相对地址解析出目标地址，参数1，基地址；参数2，相对地址
-
-4.Path模块
-提供了对文件路径操作的方法
-parse()     //解析一个路径，参数为路径字符串
-format()    //将路径对象格式化为路径字符串，参数为对象
-join()      //用于连接路径，会正确的使用当前系统的路径分隔符
-resolv()      //根据基础路径，解析出目标路径的绝对路径
-relative()    //根据基础路径，获取目标路径与其的相对关系
-
-5.DNS模块
-提供了域名和IP地址的双向解析功能。
-lookup()   //把一个域名解析成一个ip地址，从操作系统中查询（缓存）
-resolve()  //把一个域名解析成一个DNS的记录解析数组，从DNS服务器中查询
-reverse()   //把一个ip地址反向解析为一组域名
-
-6.Util工具模块
-format()  //使用带占位符方式格式化字符串
-inspect()  //返回一个对象的字符串表示
-inherits()  //实现构造方法之间的继承
-
-7.Buffer
-缓冲区，一块专用于存储数据的内存区域，与string类型相对应，用于存储二进制数据。
-Buffer对象的实例，可以通过读取文件获取，也可以手动创建。
-Buffer是Global的成员，无需require引入
-
-8.fs模块--文件系统模块
-fs模块提供了文件的读写、改名、删除、遍历目录等操作。
-fs模块中大多数方法都带有同步和异步两种。
-所有的异步方法都有一个回调函数，此回调函数的第一个参数都是一个错误对象。
-异步方法中如果错误的话，会静默失败，不会自己抛出error，通常情况下都需要自己手动处理。
-常用Class：
-    fs.Stats  //文件或目录的统计信息描述对象
-    fs.ReadStream  //stream.Readable接口的实现对象
-    fs.WriteStream //stream.Writeerable接口的实现对象
-    fs.FSWatcher   //可用于监视文件修改的文件监视器对象
-常用的方法：
-    fs.stat()  //用于返回一个文件或目录的统计信息对象(fs.Stats对象)
-    fs.mkdir()  //创建目录
-    fs.rmdir()   //删除目录
-    fs.dir()   //读取目录下的内容
-    fs.readFile()  //读取文件内容
-    fs.writeFile()  //写文件
-    fs.appendFile()  //追加
-    fs.rename
-    fs.unlink()    //删除
----------------------------
-fs.stat()   &amp;  fs.statSync()    //用于返回一个文件或目录的统计信息对象(fs.Stats对象)
-fs.Stats对象的方法：
-    stats.isFile();
-    stats.isDirectory();
----------------------------
-操作目录
-fs.mkdir()  &amp;  fs.mkdirSync()
-fs.redir()  &amp;  fs.redirSync()
-fs.readdir() &amp;  fs.readdirSync()   //读取目录下内容
----------------------------
-操作文件：
-fs.readFile()  &amp; fs.readFileSync()//读取文件内容
-fs.writeFile()  &amp;  fs.writeFileSync() //写文件
-fs.appendFile()  &amp;  fs.appendFileSync() //追加
-fs.unlink()  &amp; fs.unlinkSync()    //删除
-fs.rename()    &amp;    fs.renameSync()
-
-9.HTTP模块
-    用于构建使用HTTP协议的客户端应用或服务器应用。
-    创建并发起请求消息，等待并解析响应消息--实现web客户端
-    接收并解析请求消息，构建并发送响应消息--实现web服务器
-    常用对象：
-        http.ClientRequest
-        http.Server
-        http.ServerResponse
-        http.IncomingMessage
-    常用方法：
-        http.createServer
-        http.get()
-        http.request()
-
-    1.http.request
-        是一个HTTP客户端工具
-        用于向web服务器发起一个http请求，并获取响应数据
-        有两个主要方法：
-            http.get()
-            http.request()
-        该方法返回一个http.ClientRequest对象，用来描述请求信息，回调函数的参数是一个http.IncomingMessage对象，封装了响应的数据。
-        http.ClientRequest对象常用方法：
-            write():向服务器追加请求主体数据
-            end():提交请求消息主体结束
-            setTimeout():设置请求消息超时时间
-            abort():终止请求
-        http.ClientRequest对象常用事件：
-            response:接收到响应消息
-            abort:请求终止事件
-            error:请求发生错误
-
-        注意：使用get()方法不需要手动调用end()方法，使用request()的时候，必须手动调用end()方法。
-
-    2.http.server
-    http.server是一个基于事件的http服务器
-    用于创建web服务器，接收客户端的请求，返回响应消息。所有的请求都被封装到独立的事件当中，我们只需对它的事件编写相应的处理程序，即可实现http的所有功能。
-    方法：http.createServer()
-    用于创建web服务器应用，可以接收客户端请求，并返回响应消息。
-    该方法的返回值是一个对象http.Server。
-    http.Server对象的常用方法：
-        listen():启动服务器，监听指定的服务端口
-        close():停止服务器的运行
-        setTimeout():设置服务器响应消息超时时间
-    http.Server对象的常用事件：
-        connection:出现客户端连接
-        request:接收到请求消息
-        close:服务器停止事件
-        error:响应发生错误
-    http.Server对象的request事件回调函数中有两个参数
-        第一个参数，http.IncomingMessage对象，封装着客户端提交的请求消息数据
-        第二个参数，http.ServerResponse对象，用于构建向客户端输出的响应消息数据。
-
-10.mysql模块
-    方法：
-        createConnection()  //创建一个mysql服务器的连接，该方法返回一个连接对象，该对象有一下常用方法：
-            connect()  //连接数据库
-            query()    //提交sql语句给mysql服务器执行
-            end()    //断开mysql服务器的连接
-
-    命令：
-        cmd环境：
-        mysql -h127.0.0.1 -uroot -p -P3306
-        show databases;
-        source xxxxx.sql;   --执行sql语句
-        user xxxx;
-        show tables;
-        select * from xxx;
-
-express模块：
-    可以方便的实现服务器的路由、发送和接收http请求，返回响应、发送和接收cookie以及实现模板引擎功能。
-
-    app.method(path,[middleware],function(req,res){})
-</code></pre>
       
     </div>
     
@@ -415,10 +417,15 @@ express模块：
           <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
         </div>
         
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
         
   
   <div class="tags">
-    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>, <a href="/tags/Nodejs/">Nodejs</a>
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/Nodejs/">Nodejs</a>, <a href="/tags/技术/">技术</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -432,6 +439,15 @@ express模块：
 </div></div>
     <aside id="sidebar" class="alignright">
   
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>1</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
