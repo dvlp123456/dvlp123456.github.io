@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dvlp123456.github.io/"/>
-  <updated>2018-03-29T10:21:57.197Z</updated>
+  <updated>2018-05-18T05:55:05.264Z</updated>
   <id>https://dvlp123456.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>抓包工具（Fiddler）的简单使用和实际的调试案例</title>
+    <link href="https://dvlp123456.github.io/2018/05/17/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%EF%BC%88Fiddler%EF%BC%89%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%9E%E9%99%85%E7%9A%84%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B/"/>
+    <id>https://dvlp123456.github.io/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/</id>
+    <published>2018-05-17T15:10:23.000Z</published>
+    <updated>2018-05-18T05:55:05.264Z</updated>
+    
+    <summary type="html">
+    
+      抓包工具（Fiddler）的简单使用和实际的调试案例
+    
+    </summary>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="dvlp123456" scheme="https://dvlp123456.github.io/tags/dvlp123456/"/>
+    
+      <category term="2018" scheme="https://dvlp123456.github.io/tags/2018/"/>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="抓包工具" scheme="https://dvlp123456.github.io/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Nodejs入门</title>
     <link href="https://dvlp123456.github.io/2018/03/28/Nodejs%E5%85%A5%E9%97%A8/"/>
     <id>https://dvlp123456.github.io/2018/03/28/Nodejs入门/</id>
     <published>2018-03-28T06:10:23.000Z</published>
-    <updated>2018-03-29T10:21:57.197Z</updated>
+    <updated>2018-03-29T10:27:00.280Z</updated>
     
     <summary type="html">
     
@@ -36,9 +62,9 @@
     
       <category term="2018" scheme="https://dvlp123456.github.io/tags/2018/"/>
     
-      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="Nodejs" scheme="https://dvlp123456.github.io/tags/Nodejs/"/>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -47,24 +73,26 @@
     <link href="https://dvlp123456.github.io/2018/03/26/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BAGitHub%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>https://dvlp123456.github.io/2018/03/26/基于hexo搭建GitHub静态博客/</id>
     <published>2018-03-26T11:53:58.000Z</published>
-    <updated>2018-03-28T08:12:50.919Z</updated>
+    <updated>2018-05-18T05:57:22.784Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;0-使用github-pages服务搭建博客的好处&quot;&gt;&lt;a href=&quot;#0-使用github-pages服务搭建博客的好处&quot; class=&quot;headerlink&quot; title=&quot;0.使用github pages服务搭建博客的好处&quot;&gt;&lt;/a&gt;0.使用github pages服务搭建博客的好处&lt;/h2&gt;&lt;p&gt;&amp;ensp;&amp;ensp;a:全是静态文件，访问速度快；&lt;br&gt;&lt;br&gt;&amp;ensp;&amp;ensp;b:免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；&lt;br&gt;&lt;br&gt;&amp;ensp;&amp;ensp;c:可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；&lt;br&gt;&lt;br&gt;&amp;ensp;&amp;ensp;d:数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；&lt;br&gt;&lt;br&gt;&amp;ensp;&amp;ensp;e:博客内容可以轻松打包、转移、发布到其它平台；&lt;br&gt;&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;备注：以上内容为网上摘抄的&lt;/p&gt;
+      基于hexo搭建GitHub静态博客
     
     </summary>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="dvlp123456" scheme="https://dvlp123456.github.io/tags/dvlp123456/"/>
     
       <category term="2018" scheme="https://dvlp123456.github.io/tags/2018/"/>
     
+      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="hexo" scheme="https://dvlp123456.github.io/tags/hexo/"/>
     
       <category term="GitHub" scheme="https://dvlp123456.github.io/tags/GitHub/"/>
-    
-      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
