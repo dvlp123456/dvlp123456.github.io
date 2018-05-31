@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>word实现点击弹框功能 | 学无止境の博客</title>
+  <meta name="author" content="dvlp123456" />
+
+  
+  <meta name="description" content="word实现点击弹框功能" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="word实现点击弹框功能" />
+  <meta property="og:site_name" content="学无止境の博客" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="学无止境の博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">学无止境の博客</a></h1>
+  <h2><a href="/">记录学习的轨迹</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about.html">about</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-05-28T14:51:23.000Z"><a href="/2018/05/28/version-formyseft-word实现点击弹框/">2018-05-28</a></time>
+      
+      
+  
+    <h1 class="title">word实现点击弹框功能</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="来龙去脉介绍-ysz"><a href="#来龙去脉介绍-ysz" class="headerlink" title="来龙去脉介绍-ysz"></a>来龙去脉介绍-ysz</h2><p>受朋友之托，想要在word里面实现插入一张某个省份的地图，如，湖南省的，然后点击地图中的某个市，实现弹窗功能。<br>基于以上需求分析：需要在图片上加上点击事件。<br><a id="more"></a></p>
+<h2 id="开始尝试"><a href="#开始尝试" class="headerlink" title="开始尝试"></a>开始尝试</h2><p>平常使用word都不需要点击事件的，经过网上搜索得知<strong>word一般用于文字的处理</strong>，其它花哨（相对来说）功能较少，搜索得到两个比较有用的信息：  </p>
+<blockquote>
+<p>1、新建一word文档。<br>2、在[控件工具箱]中双击[图像]控件，图像框添加到word文档中。<br>3、在word文档中的图像框上右单击鼠标，选择[属性]，弹出[属性]对话框，在AutoSize属性选择true，在Picture属性选择你想要的图片，然后关闭属性对话框。<br>4、在word文档中，双击[图像框]控件，它打开Microsoft Visual Basic编辑器，并呈现以下代码：<br>Private Sub Image2_Click()</p>
+<p>End Sub<br>5、在子程序中输入msgbox “单击了图片”,象以下这样：<br>Private Sub Image2_Click()<br>   msgbox “单击了图片”<br>End Sub<br>6、关闭Microsoft Visual Basic编辑器。<br>7、保存word文档，然后关闭word文档。<br>8、打开刚编辑好的word文档，单击一下[图像框]试试<br>9、如果想在单击[图像框]后完成其它任务，添加修改子程序中的语句即可。<br>Private Sub Image2_Click()<br>   ‘你的语句在这里<br>   ‘你的语句在这里<br>   ‘<br>   ‘<br>End Sub    </p>
+</blockquote>
+<p>资料一摘自：<a href="https://bbs.csdn.net/topics/320012224" target="_blank" rel="noopener">https://bbs.csdn.net/topics/320012224</a><br>另外一份资料是word对VBA基础教学，题目是：WORD-VBA编程-从零开始学VBA，地址：<a href="https://wenku.baidu.com/view/7928f6e16e1aff00bed5b9f3f90f76c661374c25.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/7928f6e16e1aff00bed5b9f3f90f76c661374c25.html</a><br>经过以上两个资料的学习以及入门操作对offic的word中的vba有了一定了认识。要完成我们的目标，应该是使用vba和word开发工具菜单里面的一些控件。</p>
+<h2 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h2><p>在以上的尝试后，现尝试其中一条可能性。具体做法如下： </p>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><p>网上下载合适的一张湖南地图，如下：  </p>
+<p><img src="/img/word-map-hunan1.jpg" alt="">   </p>
+<p>使用picpick工具对原图进行挖字和画色回去得到下图：  </p>
+<p><img src="/img/word-map-hunan2.jpg" alt="">    </p>
+<p>继续使用picpick工具制作对应颜色的市名称，得到：  </p>
+<p><img src="/img/word-map-hunan3.gif" alt=""><br><img src="/img/word-map-hunan4.gif" alt=""><br><img src="/img/word-map-hunan5.gif" alt=""><br><img src="/img/word-map-hunan6.gif" alt=""><br><img src="/img/word-map-hunan7.gif" alt="">    </p>
+<p>打开word，新建，插入处理后的湖南地图，word添加开发工具菜单，步骤如下：  </p>
+<p><img src="/img/word-map-hunan8.png" alt="">  </p>
+<p>选中设计模式，即打开word的设计模式。<br>在word空白处添加开发工具里面的图像（activeX控件），右击图像控件–属性，属性对话框里面的Picture选中对应名字的图片，如长沙市，去掉控件的border属性，步骤如图：  </p>
+<p><img src="/img/word-map-hunan9.png" alt="">  </p>
+<p>右击图像控件，进行位置属性设置，设置后可以把此控件放置到对应图片的位置，如果图长沙市的位置：  </p>
+<p><img src="/img/word-map-hunan10.png" alt="">  </p>
+<p>对控件进行事件设置，双击控件，进入vbe环境，写上控件处理内容，如弹窗，保存，关闭设计模式，此时去点击控件，会弹出对应文字，如图：  </p>
+<p><img src="/img/word-map-hunan11.png" alt=""><br><img src="/img/word-map-hunan12.png" alt="">  </p>
+<p>其它市也是同样的步骤。<br>至此图片上面有了点击事件。  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.只能在文字上点击，其实是点击了控件，才会有事件响应；<br>2.目前是弹窗显示一点内容，或者是简单的交互，实现在截图（点击事件处理方法：弹窗显示）的下面；<br>3.能不能输入内容后填入word的表格里面？；<br>4.能不能弹一个表格出来展示，如应用场景：点击某一地区展示此地区的人员信息，或者地区的介绍？  </p>
+<h2 id="所有资源"><a href="#所有资源" class="headerlink" title="所有资源"></a>所有资源</h2><p><a href="/download/word_excel.rar">所有资源下载</a>  </p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>, <a href="/tags/word/">word</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/05/28/version-formyseft-word实现点击弹框/">word实现点击弹框功能</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/">抓包工具（Fiddler）的简单使用和实际的调试案例</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/28/Nodejs入门/">Nodejs入门</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/26/基于hexo搭建GitHub静态博客/">基于hexo搭建GitHub静态博客</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2018/">2018</a><small>4</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
+  
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>4</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/word/">word</a><small>1</small></li>
+  
+    <li><a href="/tags/技术/">技术</a><small>4</small></li>
+  
+    <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/2018/" style="font-size: 20px;">2018</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/dvlp123456/" style="font-size: 20px;">dvlp123456</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/抓包工具/" style="font-size: 10px;">抓包工具</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 dvlp123456
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
