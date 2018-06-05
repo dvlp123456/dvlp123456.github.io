@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>博客的自动部署 | 学无止境の博客</title>
+  <meta name="author" content="dvlp123456" />
+
+  
+  <meta name="description" content="博客的自动部署" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="博客的自动部署" />
+  <meta property="og:site_name" content="学无止境の博客" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="学无止境の博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">学无止境の博客</a></h1>
+  <h2><a href="/">记录学习的轨迹</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about.html">about</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-05T01:16:12.000Z"><a href="/2018/06/05/博客的自动部署/">2018-06-05</a></time>
+      
+      
+  
+    <h1 class="title">博客的自动部署</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="缘由介绍"><a href="#缘由介绍" class="headerlink" title="缘由介绍"></a>缘由介绍</h2><p>个人博客“基于hexo搭建GitHub静态博客”介绍的是在Windows环境下由github+git+nodejs+hexo+markdown组合搭建的手动发布的个人静态博客，现回顾下各组件的作用：  </p>
+<ul>
+<li>github:去到官网github注册即可，提供一个存放博客文件的仓库，以及提供一个可用于访问的url；  </li>
+<li>git:安装在Windows机器上，用于管理（下载，提交等）博客文件夹；  </li>
+<li>nodejs、hexo:hexo是基于nodejs的博客工程，我们提供md文件（使用markd语法文件），它可帮助我们生成博客；  </li>
+<li>markdown:是一种语法，在Windows下可安装markdownpad2来编写md文件，当然使用浏览器等其它工具生成md是一样的；    </li>
+</ul>
+<p>编写博客流程大概是这样的：使用markdownpad2工具编写自己的符合markdownpad语法的博客，当然也要符合hexo工程格式，然后把md文件放置在hexo工程的source文件夹里面的_post；在cmd命令环境里面，进入到hexo工程，执行hexo g，生成博客文件夹public；在指定目录a中，使用git拉取github上的文件，把public文件夹放到a中，使用git执行：git add -A；git commit -m “push xxx”；git push，把博客文件提交到仓库中，此时使用浏览器访问对应网址（如<a href="https://xxx.github.io/）就可以看到我们的博客的了。" target="_blank" rel="noopener">https://xxx.github.io/）就可以看到我们的博客的了。</a>  </p>
+<p>也就是说，我们每次编写博客都要手动的去编译生成博客，然后手动的去提到博客文件到仓库中，这样比较麻烦，而且如果是多人合作方式，这样就必须有一个人手动的把所有人的博客提到仓库中，我们能不能有一种方式让每个人都能力自己提到自己的博客到同一个仓库中呢？</p>
+<a id="more"></a>  
+<h2 id="努力完成目标"><a href="#努力完成目标" class="headerlink" title="努力完成目标"></a>努力完成目标</h2><p>基于以上的目标，得出下面的方案：  </p>
+<ol>
+<li>github创建另外一个仓库用于存储source文件；    </li>
+<li>得到一个外网服务器，Linux系统，提供jenkins服务，安装hexo工程，能够把md文件生成博客文件，然后把博客文件提到对应的github服务器上；  </li>
+<li>Windows环境下编写好md博客文件，然后把hexo工程的source文件，提交到github的source去；github的source收到一个提交后出发Jenkins的脚本，自动编译博客文件和提到对应的github仓库去；    </li>
+<li>source仓库邀请多人来贡献博客；  </li>
+</ol>
+<h3 id="步骤1："><a href="#步骤1：" class="headerlink" title="步骤1："></a>步骤1：</h3><p>在github创建一个新的仓库，用于存储source源文件，如图：  </p>
+<p><img src="/img/autoDeploy1.png" alt="">  </p>
+<p>仓库设置：  </p>
+<p><img src="/img/autoDeploy6.png" alt=""><br><img src="/img/autoDeploy7.png" alt=""><br><img src="/img/autoDeploy13.png" alt="">  </p>
+<h3 id="步骤2："><a href="#步骤2：" class="headerlink" title="步骤2："></a>步骤2：</h3><p>外网服务器使用ecs（云服务器 ECS（Elastic Compute Service）是一种弹性可伸缩的计算服务，助您降低 IT 成本，提升运维效率，使您更专注于核心业务创新），属于阿里的产品，需要购买，使用ecs能够部署我们自己的服务，如安装nodejs，hexo，Jenkins，这些安装的资料都可以网上找资料：  </p>
+<p><img src="/img/autoDeploy2.png" alt=""><br><img src="/img/autoDeploy3.png" alt="">  </p>
+<p>在Linux系统下准备好对应的账号，准备好工作的目录：  </p>
+<p><img src="/img/autoDeploy4.png" alt="">  </p>
+<p>hexo在Linux系统下的初始化，具体命令当然可以搜索网上资料：  </p>
+<p><img src="/img/autoDeploy5.png" alt="">  </p>
+<p>hexo的配置如果想要和Windows里面的一致，那么可以把Windows里面的hexo配置弄到Linux上面来。  </p>
+<p>在Linux安装Jenkins，步骤可以在网上搜索，注意Jenkins配置：  </p>
+<p>shell里面执行：sudo vim /etc/sysconfig/jenkins    </p>
+<p>JENKINS_USER=”root”  </p>
+<p><img src="/img/autoDeploy8.png" alt="">  </p>
+<p>表示在Jenkins里面执行脚本时，用户是root，默认是jenkins用户。<br>更多jenkins的配置以及意义都可以在网上搜索。   </p>
+<p><img src="/img/autoDeploy9.png" alt=""><br><img src="/img/autoDeploy10.png" alt=""><br><img src="/img/autoDeploy11.png" alt=""><br><img src="/img/autoDeploy12.png" alt="">  </p>
+<h2 id="步骤3"><a href="#步骤3" class="headerlink" title="步骤3"></a>步骤3</h2><p>邀请他人来为这个项目做贡献：  </p>
+<p><img src="/img/autoDeploy14.png" alt="">  </p>
+<h2 id="至此目标达成"><a href="#至此目标达成" class="headerlink" title="至此目标达成"></a>至此目标达成</h2><p>以后只需要编写md文件，提交到对应的source里面，其它步骤由Linux服务器完成，并且可以多人合作了！</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/06/05/博客的自动部署/">博客的自动部署</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/28/version-formyseft-word实现点击弹框/">word实现点击弹框功能</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/">抓包工具（Fiddler）的简单使用和实际的调试案例</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/28/Nodejs入门/">Nodejs入门</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/26/基于hexo搭建GitHub静态博客/">基于hexo搭建GitHub静态博客</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2018/">2018</a><small>5</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
+  
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>5</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/word/">word</a><small>1</small></li>
+  
+    <li><a href="/tags/技术/">技术</a><small>5</small></li>
+  
+    <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/2018/" style="font-size: 20px;">2018</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/dvlp123456/" style="font-size: 20px;">dvlp123456</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/抓包工具/" style="font-size: 10px;">抓包工具</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 dvlp123456
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

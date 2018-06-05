@@ -68,6 +68,67 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-06-05T01:16:12.000Z"><a href="/2018/06/05/博客的自动部署/">2018-06-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/05/博客的自动部署/">博客的自动部署</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="缘由介绍"><a href="#缘由介绍" class="headerlink" title="缘由介绍"></a>缘由介绍</h2><p>个人博客“基于hexo搭建GitHub静态博客”介绍的是在Windows环境下由github+git+nodejs+hexo+markdown组合搭建的手动发布的个人静态博客，现回顾下各组件的作用：  </p>
+<ul>
+<li>github:去到官网github注册即可，提供一个存放博客文件的仓库，以及提供一个可用于访问的url；  </li>
+<li>git:安装在Windows机器上，用于管理（下载，提交等）博客文件夹；  </li>
+<li>nodejs、hexo:hexo是基于nodejs的博客工程，我们提供md文件（使用markd语法文件），它可帮助我们生成博客；  </li>
+<li>markdown:是一种语法，在Windows下可安装markdownpad2来编写md文件，当然使用浏览器等其它工具生成md是一样的；    </li>
+</ul>
+<p>编写博客流程大概是这样的：使用markdownpad2工具编写自己的符合markdownpad语法的博客，当然也要符合hexo工程格式，然后把md文件放置在hexo工程的source文件夹里面的_post；在cmd命令环境里面，进入到hexo工程，执行hexo g，生成博客文件夹public；在指定目录a中，使用git拉取github上的文件，把public文件夹放到a中，使用git执行：git add -A；git commit -m “push xxx”；git push，把博客文件提交到仓库中，此时使用浏览器访问对应网址（如<a href="https://xxx.github.io/）就可以看到我们的博客的了。" target="_blank" rel="noopener">https://xxx.github.io/）就可以看到我们的博客的了。</a>  </p>
+<p>也就是说，我们每次编写博客都要手动的去编译生成博客，然后手动的去提到博客文件到仓库中，这样比较麻烦，而且如果是多人合作方式，这样就必须有一个人手动的把所有人的博客提到仓库中，我们能不能有一种方式让每个人都能力自己提到自己的博客到同一个仓库中呢？</p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2018/06/05/博客的自动部署/#more" class="more-link">更多内容</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-05-28T14:51:23.000Z"><a href="/2018/05/28/version-formyseft-word实现点击弹框/">2018-05-28</a></time>
       
       
@@ -78,7 +139,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="来龙去脉介绍-fz6"><a href="#来龙去脉介绍-fz6" class="headerlink" title="来龙去脉介绍-fz6"></a>来龙去脉介绍-fz6</h2><p>受朋友之托，想要在word里面实现插入一张某个省份的地图，如，湖南省的，然后点击地图中的某个市，实现弹窗功能。<br>基于以上需求分析：需要在图片上加上点击事件。<br>
+        <h2 id="来龙去脉介绍2"><a href="#来龙去脉介绍2" class="headerlink" title="来龙去脉介绍2"></a>来龙去脉介绍2</h2><p>受朋友之托，想要在word里面实现插入一张某个省份的地图，如，湖南省的，然后点击地图中的某个市，实现弹窗功能。<br>基于以上需求分析：需要在图片上加上点击事件。<br>
       
     </div>
     
@@ -287,7 +348,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/技术/">技术</a><small>4</small></li>
+    <li><a href="/categories/技术/">技术</a><small>5</small></li>
   
   </ul>
 </div>
@@ -297,6 +358,10 @@
 <div class="widget tag">
   <h3 class="title">最新文章</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2018/06/05/博客的自动部署/">博客的自动部署</a>
+      </li>
     
       <li>
         <a href="/2018/05/28/version-formyseft-word实现点击弹框/">word实现点击弹框功能</a>
@@ -323,19 +388,19 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/2018/">2018</a><small>4</small></li>
+    <li><a href="/tags/2018/">2018</a><small>5</small></li>
   
     <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
   
     <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
   
-    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>4</small></li>
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>5</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
     <li><a href="/tags/word/">word</a><small>1</small></li>
   
-    <li><a href="/tags/技术/">技术</a><small>4</small></li>
+    <li><a href="/tags/技术/">技术</a><small>5</small></li>
   
     <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
   
