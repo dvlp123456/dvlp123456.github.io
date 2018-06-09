@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dvlp123456.github.io/"/>
-  <updated>2018-06-05T15:48:28.790Z</updated>
+  <updated>2018-06-09T15:25:00.132Z</updated>
   <id>https://dvlp123456.github.io/</id>
   
   <author>
@@ -17,31 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>帮你测试</title>
-    <link href="https://dvlp123456.github.io/2018/06/05/test/"/>
-    <id>https://dvlp123456.github.io/2018/06/05/test/</id>
-    <published>2018-06-05T15:40:00.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
-    
-    <summary type="html">
-    
-      帮你测试
-    
-    </summary>
-    
-      <category term="技术" scheme="https://dvlp123456.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="2018" scheme="https://dvlp123456.github.io/tags/2018/"/>
-    
-  </entry>
-  
-  <entry>
     <title>博客的自动部署</title>
     <link href="https://dvlp123456.github.io/2018/06/05/%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"/>
     <id>https://dvlp123456.github.io/2018/06/05/博客的自动部署/</id>
     <published>2018-06-05T01:16:12.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
+    <updated>2018-06-09T15:25:00.132Z</updated>
     
     <summary type="html">
     
@@ -65,7 +45,7 @@
     <link href="https://dvlp123456.github.io/2018/05/28/version-formyseft-word%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E5%BC%B9%E6%A1%86/"/>
     <id>https://dvlp123456.github.io/2018/05/28/version-formyseft-word实现点击弹框/</id>
     <published>2018-05-28T14:51:23.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
+    <updated>2018-06-09T15:25:00.135Z</updated>
     
     <summary type="html">
     
@@ -91,7 +71,7 @@
     <link href="https://dvlp123456.github.io/2018/05/17/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%EF%BC%88Fiddler%EF%BC%89%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%9E%E9%99%85%E7%9A%84%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B/"/>
     <id>https://dvlp123456.github.io/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/</id>
     <published>2018-05-17T15:10:23.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
+    <updated>2018-06-09T15:25:00.132Z</updated>
     
     <summary type="html">
     
@@ -117,7 +97,7 @@
     <link href="https://dvlp123456.github.io/2018/03/28/Nodejs%E5%85%A5%E9%97%A8/"/>
     <id>https://dvlp123456.github.io/2018/03/28/Nodejs入门/</id>
     <published>2018-03-28T06:10:23.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
+    <updated>2018-06-09T15:25:00.134Z</updated>
     
     <summary type="html">
     
@@ -143,7 +123,7 @@
     <link href="https://dvlp123456.github.io/2018/03/26/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BAGitHub%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>https://dvlp123456.github.io/2018/03/26/基于hexo搭建GitHub静态博客/</id>
     <published>2018-03-26T11:53:58.000Z</published>
-    <updated>2018-06-05T15:48:28.790Z</updated>
+    <updated>2018-06-09T15:25:00.133Z</updated>
     
     <summary type="html">
     
