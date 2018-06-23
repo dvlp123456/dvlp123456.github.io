@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>erlang手记 &amp; 一个版本问题 | 学无止境の博客</title>
+  <meta name="author" content="dvlp123456" />
+
+  
+  <meta name="description" content="erlang手记 &amp; 一个版本问题" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="erlang手记 &amp; 一个版本问题" />
+  <meta property="og:site_name" content="学无止境の博客" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="学无止境の博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">学无止境の博客</a></h1>
+  <h2><a href="/">记录学习的轨迹</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about.html">about</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-22T15:07:43.000Z"><a href="/2018/06/22/erlang手记和一个版本问题/">2018-06-22</a></time>
+      
+      
+  
+    <h1 class="title">erlang手记 &amp; 一个版本问题</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>重温erlang基础，把一些常用以及牛逼哄哄的知识点记录下来。当然了，重温的内容包括却不止于下面的内容。   </p>
+<a id="more"></a>
+<h2 id="2-知识点列表"><a href="#2-知识点列表" class="headerlink" title="2.知识点列表"></a>2.知识点列表</h2><ul>
+<li><strong>查看自己的pid</strong><br>  self()  </li>
+<li><strong>查看已经启动的进程</strong><br>  i()  </li>
+<li><strong>-module(person)</strong><br>  person应该和文件夹名一致，是原子  </li>
+<li><strong>进程间发送消息格式</strong><br>  Pid ! Msg  </li>
+<li><strong>接收进程代码</strong>  <pre><code class="erlang"><span class="keyword">receive</span>  
+    {From,Message}-&gt;  
+    ...  
+<span class="keyword">end</span>
+</code></pre>
+  如在erlang shell中：receive X -&gt; X end. %打印接收的消息</li>
+<li><strong>spawn</strong>  <pre><code class="erlang">Pid = spawn(io,format,[<span class="string">"danz=====~n~p~n"</span>,[<span class="string">"is very good"</span>]])  
+</code></pre>
+</li>
+<li><p><strong>并发</strong><br>  并发的好处：<br>  1.性能：性能能够得到很好的提升，现在多核cpu已经普及，成本更低了；<br>  2.可拓展性：erlang的拓展性天生就很好；<br>  3.容错：进程间互不干扰，所以一个进程崩溃了不会影响其他进程  </p>
+<p>  并发和并行：<br>  并发和软件有关，如erlang是并发编程语言，有描述并发的语言结构，能够编写并发的程序<br>  并行和硬件有关，如并行计算机是一种有多个处理单元（cpu或核心）运行的计算机  </p>
+<p>  基于操作系统的并发和基于语言的并发：<br>  基于操作系统的并发，程序在不同操作系统上会有不同的工作方式；erlang的并发在所有操作系统有相同的工作方式，是基于语言的并发    </p>
+</li>
+<li><strong>官网</strong><br>  <a href="http://www.erlang.org/" target="_blank" rel="noopener">http://www.erlang.org/</a>  </li>
+<li><strong>打开erlang shell</strong><br>  cmd或者linux中：<br>  erl  </li>
+<li><strong>清除shell绑定的变量</strong><br>  f()  </li>
+<li><strong>停止erl shell</strong><br>  q()是init:stop()别名<br>  erlang:halt()  </li>
+<li><strong>erlang shell查看目录</strong>  <pre><code class="erlang"><span class="function"><span class="title">pwd</span><span class="params">()</span>  </span>
+<span class="function"><span class="title">ls</span><span class="params">()</span>   </span>
+<span class="function"><span class="title">cd</span><span class="params">(Dir)</span>  </span>
+</code></pre>
+</li>
+<li><strong>Windows环境下查看erlang的源码</strong><br>  Windows环境下查看erlang的源码：C:\Program Files (x86)\erl5.9.3.1\lib\stdlib-1.18.3\src<br>  然还有很多其它的模块  </li>
+<li><strong>lists模块</strong>  <pre><code class="erlang">lists:map(F,List)  
+lists:filter()  
+lists:seq(<span class="number">1</span>,N)   
+lists:reverse([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])   
+... 
+</code></pre>
+</li>
+<li><p><strong>小程序</strong>  </p>
+<p>排序：  </p>
+<pre><code class="erlang"><span class="function"><span class="title">qsort</span><span class="params">([])</span>-&gt;</span>[];  
+<span class="function"><span class="title">qsort</span><span class="params">([Pivot|T])</span>-&gt;</span>  
+  qsort([X || X &lt;- T,X &lt; Pivot])  
+  ++ [Pivot] ++  
+  qsort([X || X &lt;- T,X &gt;= Pivot]).
+</code></pre>
+<p>勾股定理数：  </p>
+<pre><code class="erlang"><span class="function"><span class="title">ggdl</span><span class="params">(N)</span>-&gt;</span>
+  [{A,B,C} || 
+  A &lt;- lists:seq(<span class="number">1</span>,N),
+  B &lt;- lists:seq(<span class="number">1</span>,N),
+  C &lt;- lists:seq(<span class="number">1</span>,N),
+  A*A+B*B=:=C*C
+  ].
+</code></pre>
+<p>回文构词：  </p>
+<pre><code class="erlang"><span class="function"><span class="title">perms</span><span class="params">([])</span>-&gt;</span>[[]];
+<span class="function"><span class="title">perms</span><span class="params">([L])</span>-&gt;</span>[[H|T] || H &lt;- L, T &lt;- perms(L -- [H])].
+</code></pre>
+</li>
+<li><p><strong>打印</strong>  </p>
+<pre><code class="erlang">io:format(<span class="string">"~n~p~n"</span>,[Paras]).    
+io:format(<span class="string">"~n~w~n"</span>,[Paras]).    
+io:format(<span class="string">"~n~t~n"</span>,[Paras]).      <span class="comment">%可以打印中文</span>
+</code></pre>
+</li>
+<li><p><strong>记录 &amp; 映射组</strong><br>  记录：</p>
+<p>定义：<code>-record{todo,{status=reminder,who=joe,text}}.</code></p>
+<p>记录本质就是元组。</p>
+<p>shell里面读取记录命令：<code>rr(&quot;todo.hrl&quot;)</code><br>shell忘记记录命令：<code>rf(todo)</code>      %忘记记录定义后，输出已经定义的记录，发现本质就是元组</p>
+<p>%判断X是否是todo类型记录</p>
+<pre><code class="erlang"><span class="function"><span class="title">do_something</span><span class="params">(X)</span> <span class="title">when</span> <span class="title">is_record</span><span class="params">(X, todo)</span>-&gt;</span>
+</code></pre>
+<p>映射组：</p>
+<p>定义：<code>#{a =&gt; 1,b =&gt; 2}   #{a := 1,b := 2}</code></p>
+<p>统计字符出现次数：<font color="red">(注意要在R17版本以及以后版本才能使用此功能)</font></p>
+<pre><code class="erlang"><span class="function"><span class="title">count_chars</span><span class="params">(Str)</span>-&gt;</span>
+  count_chars(Str,#{}).
+<span class="function"><span class="title">count_chars</span><span class="params">([H|T],#{H =&gt; N}=X)</span> -&gt;</span>
+  count_chars(T,X#{H := N+<span class="number">1</span>});
+<span class="function"><span class="title">count_chars</span><span class="params">([H|T],X)</span> -&gt;</span>
+  count_chars(T,X#{H =&gt; <span class="number">1</span>});
+<span class="function"><span class="title">count_chars</span><span class="params">([],X)</span> -&gt;</span>
+  X. 
+</code></pre>
+</li>
+<li><p><strong>异常</strong><br>  ①：try … catch … after … end<br>②：catch </p>
+<p>主动抛出：</p>
+<pre><code class="erlang"><span class="function"><span class="title">throw</span><span class="params">(Exception)</span>    </span>
+<span class="function"><span class="title">exit</span><span class="params">(Exception)</span>    </span>
+<span class="function"><span class="title">error</span><span class="params">(Exception)</span>    </span>
+</code></pre>
+<p>得到栈信息：</p>
+<pre><code class="erlang">erlang:get_stacktrace()  
+</code></pre>
+</li>
+<li><strong>二进制型(binary)和位串(bitstring)</strong><br>  例子1：<pre><code class="erlang">Red=<span class="number">2</span>
+Green=<span class="number">61</span>
+Blue=<span class="number">20</span>
+M = &lt;&lt;Red:<span class="number">5</span>,Green:<span class="number">6</span>,Blue:<span class="number">5</span>&gt;&gt;.  <span class="comment">%%&lt;&lt;23,180&gt;&gt;</span>
+</code></pre>
+例子2：<pre><code class="erlang">B1 = &lt;&lt;<span class="number">1</span>:<span class="number">8</span>&gt;&gt;
+<span class="function"><span class="title">byte_size</span><span class="params">(B1)</span>  %% 1</span>
+<span class="function"><span class="title">is_binary</span><span class="params">(B1)</span>  %% <span class="title">true</span></span>
+<span class="function"><span class="title">is_bitstring</span><span class="params">(B1)</span>  %% <span class="title">true</span></span>
+B2 = &lt;&lt;1:17&gt;&gt;  %%&lt;&lt;0,0,1:1&gt;&gt;
+<span class="function"><span class="title">is_binary</span><span class="params">(B2)</span> %%<span class="title">false</span></span>
+<span class="function"><span class="title">is_bitstring</span><span class="params">(B2)</span>  %% <span class="title">true</span></span>
+<span class="function"><span class="title">byte_size</span><span class="params">(B2)</span> %%3</span>
+<span class="function"><span class="title">bit_sise</span><span class="params">(B2)</span> %% 17  </span>
+</code></pre>
+</li>
+<li><strong>提取模块信息方式</strong><br>  ModuleNmae:module_info()  %如：lists:module_info()  </li>
+</ul>
+<h2 id="3-erlang版本问题"><a href="#3-erlang版本问题" class="headerlink" title="3.erlang版本问题"></a>3.erlang版本问题</h2><p>在《Programming Erlang》第2版第5章有个例子，计算字符出现次数，代码如下：</p>
+<pre><code class="erlang"><span class="keyword">-module</span><span class="params">(countChar)</span>.  
+<span class="keyword">-export</span><span class="params">([count_characters/<span class="number">1</span>])</span>.  
+<span class="function"><span class="title">count_characters</span><span class="params">(Str)</span> -&gt;</span>  
+    count_characters(Str, #{}).  
+<span class="function"><span class="title">count_characters</span><span class="params">([H|T],  #{ H =&gt; N } = X)</span> -&gt;</span>  
+    count_characters(T, X#{ H := N+<span class="number">1</span> });  
+<span class="function"><span class="title">count_characters</span><span class="params">([H|T], X)</span> -&gt;</span>  
+    count_characters(T, X#{ H =&gt; <span class="number">1</span> });  
+<span class="function"><span class="title">count_characters</span><span class="params">([], X)</span> -&gt;</span>   
+    X.  
+</code></pre>
+<p>在Windows环境中的cmd下编译出错：</p>
+<pre><code class="bash">C:\Users\danz\erl&gt;erlc lib_misc.erl
+c:/Users/danz/erl/lib_misc.erl:31: syntax error before: <span class="string">'{'</span>
+c:/Users/danz/erl/lib_misc.erl:34: syntax error before: <span class="string">'{'</span>
+c:/Users/danz/erl/lib_misc.erl:2: <span class="keyword">function</span> count_characters/1 undefined
+</code></pre>
+<p>编译其它erl文件，得到正确的执行：</p>
+<pre><code class="erlang">C:\Users\danz\erl&gt;erlc helloworld.erl
+
+C:\Users\danz\erl&gt;erl -noshell -s helloworld start -s init stop
+helloworld2
+C:\Users\danz\erl&gt;
+</code></pre>
+<p>搜索相关错误，如搜索：count_characters.erl，得到以下文章：<a href="https://blog.csdn.net/hzhsan/article/details/50197815" target="_blank" rel="noopener">https://blog.csdn.net/hzhsan/article/details/50197815</a><br>文章中说的很明白，原因：</p>
+<p>在 Erlang/opt 17中</p>
+<ul>
+<li>No variable keys (key中不能含变量) </li>
+<li>No single value access (不支持取单个value，即不支持#{Key}操作) </li>
+<li>No map comprehensions (不支持map推导，例如 #{X =&gt; foggy || X &lt;- [london,boston]}.)</li>
+</ul>
+<p>18 中仅得到部分支持<br>如果我们要使用上述功能，应该运用 Erlang 提供给我们的 maps 模块。</p>
+<pre><code class="erlang">maps:new() 
+erlang:is_map(M) 
+maps:is_key(Key, Map) 
+maps:get(Key, Map) 
+...
+</code></pre>
+<p>知道是因为erlang版本的原因，故在上提到的文章中下载OTP 18版本（或者去官网下载），安装到本机中，那么此时本机上有两个版本的erlang了，分别是：<br>Erlang/OTP R15B03；<br>Erlang/OTP 18<br>（</p>
+<p><font color="BlueViolet">在Windows中查看erlang的安装的版本方法</font>：<br>①找到对应的安装路径，如：C:\Program Files (x86)\erl7.1，打开里面doc文档的index.html，文档头部有标明版本信息；<br>②打开erlang shell，注意不是在cmd环境中打开，是erlang自带的shell；</p>
+<p><font color="BlueViolet">如果是在linux系统中</font>，当输入erl时，就把对于的版本信息都打印出来了。在Windows下cmd输入erl，没有打印全部版本信息<br>）<br>本机Windows环境下，我想在cmd中使用OTP 18版本，原来配置了OTP R15B03的环境变量，可以手动配置OTP 18环境变量，或者暂时在一个cmd中测试，步骤：<br>cmd中，临时加入路径：</p>
+<pre><code class="erlang">C:\Users\danz\erl&gt;set PATH=<span class="string">"C:\Program Files (x86)\erl7.1\bin"</span>;<span class="comment">%PATH%</span>
+</code></pre>
+<p>C:\Program Files (x86)\erl7.1\bin是OTP 18安装路径；<br>继续操作：</p>
+<pre><code class="erlang">C:\Users\danz\erl&gt;erl
+Eshell V7.<span class="number">1</span>  (abort with ^G)
+<span class="number">1</span>&gt; c(lib_misc).
+{ok,lib_misc}
+<span class="number">2</span>&gt; lib_misc:count_characters(<span class="string">"helloworld"</span>).
+#{<span class="number">100</span> =&gt; <span class="number">1</span>,<span class="number">101</span> =&gt; <span class="number">1</span>,<span class="number">104</span> =&gt; <span class="number">1</span>,<span class="number">108</span> =&gt; <span class="number">3</span>,<span class="number">111</span> =&gt; <span class="number">2</span>,<span class="number">114</span> =&gt; <span class="number">1</span>,<span class="number">119</span> =&gt; <span class="number">1</span>}
+</code></pre>
+<p>得到正确执行！<br>打开另外一个cmd，查看版本：</p>
+<pre><code class="erlang">C:\Users\danz\erl&gt;erl
+Eshell V5.<span class="number">9.3</span>.<span class="number">1</span>  (abort with ^G)
+<span class="number">1</span>&gt; c(lib_misc).
+lib_misc.erl:<span class="number">31</span>: syntax error before: '{'
+lib_misc.erl:<span class="number">34</span>: syntax error before: '{'
+lib_misc.erl:<span class="number">2</span>: function count_characters/<span class="number">1</span> undefined
+error
+</code></pre>
+<p>是原来版本，编译错误。 </p>
+<h2 id="4-erlang自带shell编译问题"><a href="#4-erlang自带shell编译问题" class="headerlink" title="4.erlang自带shell编译问题"></a>4.erlang自带shell编译问题</h2><p>问题表现：  </p>
+<p><img src="/img/erlang-shouji1.png" alt="">  </p>
+<p>搜索错误信息：lib_misc.bea#: error writing file，得到文章：<a href="https://stackoverflow.com/questions/5495756/how-to-use-erlang-examples" target="_blank" rel="noopener">https://stackoverflow.com/questions/5495756/how-to-use-erlang-examples</a><br>里面提到：<font color="red">To compile a .erl file, the compiler needs to be able to write out the compiled .beam file.</font><br>换句话说就是没有创建文件的权限，就是权限问题，故使用管理员身份运行erlang shell：</p>
+<p><img src="/img/erlang-shouji2.png" alt="">  </p>
+<p>问题解决。</p>
+<p>遗留问题：<br>   怎么改变erlang自带shell的工作目录？</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>, <a href="/tags/erlang/">erlang</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>8</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/06/22/erlang手记和一个版本问题/">erlang手记 &amp; 一个版本问题</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/15/java集合汇总/">java集合汇总</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/">阿里云服务器ecs安装(搭建)Tomcat</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/05/博客的自动部署/">博客的自动部署</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/28/version-formyseft-word实现点击弹框/">word实现点击弹框功能</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2018/">2018</a><small>8</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
+  
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>8</small></li>
+  
+    <li><a href="/tags/erlang/">erlang</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/java，集合/">java，集合</a><small>1</small></li>
+  
+    <li><a href="/tags/word/">word</a><small>1</small></li>
+  
+    <li><a href="/tags/技术/">技术</a><small>8</small></li>
+  
+    <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/2018/" style="font-size: 20px;">2018</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/dvlp123456/" style="font-size: 20px;">dvlp123456</a> <a href="/tags/erlang/" style="font-size: 10px;">erlang</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java，集合/" style="font-size: 10px;">java，集合</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/抓包工具/" style="font-size: 10px;">抓包工具</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 dvlp123456
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
