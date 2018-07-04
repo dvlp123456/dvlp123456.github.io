@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>归档 | 学无止境の博客</title>
+  <title>erlang编译报错问题和linux源码安装erlang | 学无止境の博客</title>
   <meta name="author" content="dvlp123456" />
 
   
-  <meta name="description" content="做自己爱做的事，爱自己在做的事！" />
+  <meta name="description" content="erlang编译报错问题和linux源码安装erlang" />
   
 
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="erlang编译报错问题和linux源码安装erlang" />
   <meta property="og:site_name" content="学无止境の博客" />
 
   
@@ -61,121 +61,81 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">归档</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-30T15:04:00.000Z"><a href="/2018/06/30/erlang编译报错问题和linux源码安装erlang/">2018-06-30</a></time>
+      
+      
+  
+    <h1 class="title">erlang编译报错问题和linux源码安装erlang</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>这段时间重温了erlang的一些基础，遇到一些基础问题，在此记录下   </p>
+<a id="more"></a>
+<h2 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h2><ul>
+<li>1.编译ezwebframe遇到erlang版本低问题  </li>
+</ul>
+<p><img src="/img/erlang-compile-install1.png" alt="">  </p>
+<p><img src="/img/erlang-compile-install2.png" alt="">  </p>
+<p><img src="/img/erlang-compile-install3.png" alt="">  </p>
+<ul>
+<li>2.erlang管理工具rebar编译问题  </li>
+</ul>
+<p>erlang常用管理工具有：rebar，make.file。<br>rebar版本有：以前版本（[https://]github.com/basho/rebar），rebar3版本（[https://]github.com/erlang）。这两个版本差别很大。<br>Windows环境使用rebar的一个介绍文章：<a href="https://www.cnblogs.com/autumnwhisper/p/4914726.html。" target="_blank" rel="noopener">https://www.cnblogs.com/autumnwhisper/p/4914726.html。</a>  </p>
+<p>踩过的坑：rebar3无法顺利的编译通过，rebar以前版本可以顺利编译通过并且正常使用（具体原因未去深究）  </p>
+<p><img src="/img/erlang-compile-install4.png" alt="">  </p>
+<ul>
+<li>3.编译cowboy遇到erlang版本低问题  </li>
+</ul>
+<p><img src="/img/erlang-compile-install5.png" alt="">  </p>
+<p>既然linux环境下erlang版本低，那么我们就来安装一个更高版本erlang吧：  </p>
+<p><a href="https://blog.csdn.net/li775085737/article/details/77825217" target="_blank" rel="noopener">https://blog.csdn.net/li775085737/article/details/77825217</a><br><a href="https://jingyan.baidu.com/article/19020a0a2eb81b529d28429a.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/19020a0a2eb81b529d28429a.html</a>  </p>
+<p>安装步骤过程：</p>
+<ol>
+<li>下载源码包（当然还有rpm包和预编译包安装等方式）；  </li>
+<li>配置：./configure –prefix=/usr/local/servers/erlang –without-javac –with-ssl=/usr/local/ssl/,需要查看–with-ssl意思，configure –help即可，使用ssl，一般安装地址是/bin/local/ssl，查看安装的位置：rpm -ql openssl ；  </li>
+<li>编译：make，安装：make install，建议给管理权限去操作；  </li>
+<li>配置erl路径：<br>mv /usr/bin/erl /usr/bin/erl.bak<br>mv /usr/bin/erlc /usr/bin/erlc.bak<br>ln -s /usr/local/servers/erlang/bin/erl /usr/bin/erl<br>ln -s /usr/local/servers/erlang/bin/erlc /usr/bin/erlc  </li>
+<li>验证：<br>输入erl查看版本  </li>
+<li>linux安装erlang在configure时会检查所有配置，可能遇到依赖问题，一下是列表：  </li>
+</ol>
+<p><img src="/img/erlang-compile-install6.png" alt="">  </p>
 
-  <div class="archive">
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-06-30T15:04:00.000Z"><a href="/2018/06/30/erlang编译报错问题和linux源码安装erlang/">2018-06-30</a></time>
-            
-              <h1 class="title"><a href="/2018/06/30/erlang编译报错问题和linux源码安装erlang/">erlang编译报错问题和linux源码安装erlang</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
         </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-06-22T15:07:43.000Z"><a href="/2018/06/22/erlang手记和一个版本问题/">2018-06-22</a></time>
-            
-              <h1 class="title"><a href="/2018/06/22/erlang手记和一个版本问题/">erlang手记 &amp; 一个版本问题</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-06-15T02:07:33.000Z"><a href="/2018/06/15/java集合汇总/">2018-06-15</a></time>
-            
-              <h1 class="title"><a href="/2018/06/15/java集合汇总/">java集合汇总</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-06-09T03:28:15.000Z"><a href="/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/">2018-06-09</a></time>
-            
-              <h1 class="title"><a href="/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/">阿里云服务器ecs安装(搭建)Tomcat</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-06-05T01:16:12.000Z"><a href="/2018/06/05/博客的自动部署/">2018-06-05</a></time>
-            
-              <h1 class="title"><a href="/2018/06/05/博客的自动部署/">博客的自动部署</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-05-28T14:51:23.000Z"><a href="/2018/05/28/version-formyseft-word实现点击弹框/">2018-05-28</a></time>
-            
-              <h1 class="title"><a href="/2018/05/28/version-formyseft-word实现点击弹框/">word实现点击弹框功能</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-05-17T15:10:23.000Z"><a href="/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/">2018-05-17</a></time>
-            
-              <h1 class="title"><a href="/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/">抓包工具（Fiddler）的简单使用和实际的调试案例</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-03-28T06:10:23.000Z"><a href="/2018/03/28/Nodejs入门/">2018-03-28</a></time>
-            
-              <h1 class="title"><a href="/2018/03/28/Nodejs入门/">Nodejs入门</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-03-26T11:53:58.000Z"><a href="/2018/03/26/基于hexo搭建GitHub静态博客/">2018-03-26</a></time>
-            
-              <h1 class="title"><a href="/2018/03/26/基于hexo搭建GitHub静态博客/">基于hexo搭建GitHub静态博客</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>, <a href="/tags/erlang/">erlang</a>, <a href="/tags/linux/">linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   

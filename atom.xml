@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dvlp123456.github.io/"/>
-  <updated>2018-06-23T02:56:49.353Z</updated>
+  <updated>2018-07-04T22:59:15.289Z</updated>
   <id>https://dvlp123456.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>erlang编译报错问题和linux源码安装erlang</title>
+    <link href="https://dvlp123456.github.io/2018/06/30/erlang%E7%BC%96%E8%AF%91%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%92%8Clinux%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85erlang/"/>
+    <id>https://dvlp123456.github.io/2018/06/30/erlang编译报错问题和linux源码安装erlang/</id>
+    <published>2018-06-30T15:04:00.000Z</published>
+    <updated>2018-07-04T22:59:15.289Z</updated>
+    
+    <summary type="html">
+    
+      erlang编译报错问题和linux源码安装erlang
+    
+    </summary>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="dvlp123456" scheme="https://dvlp123456.github.io/tags/dvlp123456/"/>
+    
+      <category term="2018" scheme="https://dvlp123456.github.io/tags/2018/"/>
+    
+      <category term="技术" scheme="https://dvlp123456.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="erlang" scheme="https://dvlp123456.github.io/tags/erlang/"/>
+    
+      <category term="linux" scheme="https://dvlp123456.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>erlang手记 &amp; 一个版本问题</title>
     <link href="https://dvlp123456.github.io/2018/06/22/erlang%E6%89%8B%E8%AE%B0%E5%92%8C%E4%B8%80%E4%B8%AA%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
     <id>https://dvlp123456.github.io/2018/06/22/erlang手记和一个版本问题/</id>
     <published>2018-06-22T15:07:43.000Z</published>
-    <updated>2018-06-23T02:56:49.353Z</updated>
+    <updated>2018-07-04T22:59:15.290Z</updated>
     
     <summary type="html">
     
@@ -47,7 +75,7 @@
     <link href="https://dvlp123456.github.io/2018/06/15/java%E9%9B%86%E5%90%88%E6%B1%87%E6%80%BB/"/>
     <id>https://dvlp123456.github.io/2018/06/15/java集合汇总/</id>
     <published>2018-06-15T02:07:33.000Z</published>
-    <updated>2018-06-23T02:56:49.353Z</updated>
+    <updated>2018-07-04T22:59:15.290Z</updated>
     
     <summary type="html">
     
@@ -73,7 +101,7 @@
     <link href="https://dvlp123456.github.io/2018/06/09/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ecs%E5%AE%89%E8%A3%85(%E6%90%AD%E5%BB%BA)Tomcat/"/>
     <id>https://dvlp123456.github.io/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/</id>
     <published>2018-06-09T03:28:15.000Z</published>
-    <updated>2018-06-23T02:56:49.358Z</updated>
+    <updated>2018-07-04T22:59:15.294Z</updated>
     
     <summary type="html">
     
@@ -97,7 +125,7 @@
     <link href="https://dvlp123456.github.io/2018/06/05/%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"/>
     <id>https://dvlp123456.github.io/2018/06/05/博客的自动部署/</id>
     <published>2018-06-05T01:16:12.000Z</published>
-    <updated>2018-06-23T02:56:49.354Z</updated>
+    <updated>2018-07-04T22:59:15.291Z</updated>
     
     <summary type="html">
     
@@ -121,7 +149,7 @@
     <link href="https://dvlp123456.github.io/2018/05/28/version-formyseft-word%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E5%BC%B9%E6%A1%86/"/>
     <id>https://dvlp123456.github.io/2018/05/28/version-formyseft-word实现点击弹框/</id>
     <published>2018-05-28T14:51:23.000Z</published>
-    <updated>2018-06-23T02:56:49.357Z</updated>
+    <updated>2018-07-04T22:59:15.293Z</updated>
     
     <summary type="html">
     
@@ -147,7 +175,7 @@
     <link href="https://dvlp123456.github.io/2018/05/17/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%EF%BC%88Fiddler%EF%BC%89%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%9E%E9%99%85%E7%9A%84%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B/"/>
     <id>https://dvlp123456.github.io/2018/05/17/抓包工具（Fiddler）的简单使用和实际的调试案例/</id>
     <published>2018-05-17T15:10:23.000Z</published>
-    <updated>2018-06-23T02:56:49.353Z</updated>
+    <updated>2018-07-04T22:59:15.290Z</updated>
     
     <summary type="html">
     
@@ -173,7 +201,7 @@
     <link href="https://dvlp123456.github.io/2018/03/28/Nodejs%E5%85%A5%E9%97%A8/"/>
     <id>https://dvlp123456.github.io/2018/03/28/Nodejs入门/</id>
     <published>2018-03-28T06:10:23.000Z</published>
-    <updated>2018-06-23T02:56:49.356Z</updated>
+    <updated>2018-07-04T22:59:15.292Z</updated>
     
     <summary type="html">
     
@@ -199,7 +227,7 @@
     <link href="https://dvlp123456.github.io/2018/03/26/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BAGitHub%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>https://dvlp123456.github.io/2018/03/26/基于hexo搭建GitHub静态博客/</id>
     <published>2018-03-26T11:53:58.000Z</published>
-    <updated>2018-06-23T02:56:49.355Z</updated>
+    <updated>2018-07-04T22:59:15.292Z</updated>
     
     <summary type="html">
     
