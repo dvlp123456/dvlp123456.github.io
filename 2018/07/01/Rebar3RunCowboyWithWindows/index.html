@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>在Windows环境下使用rebar3运行cowboy例子 | 学无止境の博客</title>
+  <meta name="author" content="dvlp123456" />
+
+  
+  <meta name="description" content="在Windows环境下使用rebar3运行cowboy例子" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="在Windows环境下使用rebar3运行cowboy例子" />
+  <meta property="og:site_name" content="学无止境の博客" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="学无止境の博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">学无止境の博客</a></h1>
+  <h2><a href="/">记录学习的轨迹</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about.html">about</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-01T12:14:23.000Z"><a href="/2018/07/01/Rebar3RunCowboyWithWindows/">2018-07-01</a></time>
+      
+      
+  
+    <h1 class="title">在Windows环境下使用rebar3运行cowboy例子</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>此篇文章目标如题。   </p>
+<a id="more"></a>
+<h2 id="2-环境"><a href="#2-环境" class="headerlink" title="2.环境"></a>2.环境</h2><ul>
+<li><font color="BlueViolet">Windows10</font>  </li>
+<li><font color="BlueViolet">rebar3</font>  </li>
+<li><font color="BlueViolet">cowboy</font>  
+
+</li>
+</ul>
+<h2 id="3-rebar3执行文件的生成"><a href="#3-rebar3执行文件的生成" class="headerlink" title="3.rebar3执行文件的生成"></a>3.rebar3执行文件的生成</h2><p>github上下载rebar3，地址：<a href="https://github.com/erlang" target="_blank" rel="noopener">https://github.com/erlang</a><font color="white">，然后执行里面的bootstrap.bat文件，得到：rebar3和rebar3.cmd文件，复制到任何想要执行rebar3的地方。rebar前面的版本好像有问题，无法成功的执行bootstrap.bat文件，自然无法得到对应的rebar3和rebar3.cmd文件。</font>  </p>
+<p>本机上有三个版本的erlang，分别是：Erlang/OTP R15B03，Erlang/OTP 18，Erlang/OTP 19.2，默认使用，Erlang/OTP R15B03  </p>
+<h2 id="4-使用rebar3"><a href="#4-使用rebar3" class="headerlink" title="4.使用rebar3"></a>4.使用rebar3</h2><p>参考文章：<a href="https://my.oschina.net/shadowolf/blog/1593767" target="_blank" rel="noopener">https://my.oschina.net/shadowolf/blog/1593767</a>  </p>
+<h3 id="1-把rebar3和rebar3-cmd文件放到当前目录下，创建工程："><a href="#1-把rebar3和rebar3-cmd文件放到当前目录下，创建工程：" class="headerlink" title="1.把rebar3和rebar3.cmd文件放到当前目录下，创建工程："></a>1.把rebar3和rebar3.cmd文件放到当前目录下，创建工程：</h3><pre><code class="erlang">C:\Users\danz\erl\<span class="number">1</span>&gt;rebar3 new app test_cowboy
+Hi,I am .erlang file.
+
+=ERROR REPORT==== <span class="number">17</span>-Jul-<span class="number">2018</span>::<span class="number">16</span>:<span class="number">36</span>:<span class="number">58</span> ===
+beam/beam_load.c(<span class="number">1670</span>): Error loading module bbmus    tache:
+  This BEAM file was compiled for a later version <span class="keyword">of</span> the run-time system than R15B03.
+  To fix this, please recompile this module with an R15B03 compiler.
+  (Use <span class="keyword">of</span> opcode <span class="number">156</span>; this emulator supports only up to <span class="number">153</span>.)
+
+
+=ERROR REPORT==== <span class="number">17</span>-Jul-<span class="number">2018</span>::<span class="number">16</span>:<span class="number">36</span>:<span class="number">58</span> ===
+Loading <span class="keyword">of</span> c:/Users/danz/erl/<span class="number">1</span>/rebar3/bbmustache/ebin/bbmustache.beam failed: badfile
+===&gt; Uncaught error in rebar_core. Run with DEBUG=<span class="number">1</span> to see stacktrace or consult rebar3.crashdump
+===&gt; When submitting a bug report, please include the output <span class="keyword">of</span> `rebar3 report <span class="string">"your command"</span>`
+</code></pre>
+<p>默认使用erlang版本：Erlang/OTP R15B03，改为使用Erlang/OTP 18，erlang版本：  </p>
+<pre><code class="erlang">C:\Users\danz\erl\<span class="number">1</span>&gt;rebar3 new app test_cowboy
+Hi,I am .erlang file.
+===&gt; Writing test_cowboy/src/test_cowboy_app.erl
+===&gt; Writing test_cowboy/src/test_cowboy_sup.erl
+===&gt; Writing test_cowboy/src/test_cowboy.app.src
+===&gt; Writing test_cowboy/rebar.config
+===&gt; Writing test_cowboy/.gitignore
+===&gt; Writing test_cowboy/LICENSE
+===&gt; Writing test_cowboy/README.md
+</code></pre>
+<p>非常顺畅的执行成功了。  </p>
+<h3 id="2-参照文章改造文件"><a href="#2-参照文章改造文件" class="headerlink" title="2.参照文章改造文件"></a>2.参照文章改造文件</h3><h3 id="3-把rebar3和rebar3-cmd文件放置到test-cowboy目录中，编译工程："><a href="#3-把rebar3和rebar3-cmd文件放置到test-cowboy目录中，编译工程：" class="headerlink" title="3.把rebar3和rebar3.cmd文件放置到test_cowboy目录中，编译工程："></a>3.把rebar3和rebar3.cmd文件放置到test_cowboy目录中，编译工程：</h3><pre><code class="erlang">C:\Users\danz\erl\<span class="number">1</span>\test_cowboy&gt;rebar3 compile
+Hi,I am .erlang file.
+===&gt; Fetching rebar3_run ({git,<span class="string">"git://github.com/tsloughter/rebar3_run.git"</span>,
+                               {branch,<span class="string">"master"</span>}})
+===&gt; Compiling rebar3_run
+===&gt; Verifying dependencies...
+===&gt; Fetching cowboy ({git,<span class="string">"git://github.com/extend/cowboy.git"</span>,{tag,<span class="string">"1.0.0"</span>}})
+===&gt; Fetching cowlib ({git,<span class="string">"git://github.com/extend/cowlib.git"</span>,<span class="string">"1.0.0"</span>})
+===&gt; WARNING: It is recommended to use {branch, Name}, {tag, Tag} or {ref, Ref}, otherwise updating the dep may <span class="keyword">not</span> work as expected.
+===&gt; Fetching ranch ({git,<span class="string">"git://github.com/extend/ranch.git"</span>,<span class="string">"1.0.0"</span>})
+===&gt; WARNING: It is recommended to use {branch, Name}, {tag, Tag} or {ref, Ref}, otherwise updating the dep may <span class="keyword">not</span> work as expected.
+===&gt; Compiling cowlib
+===&gt; Compiling ranch
+===&gt; Compiling cowboy
+===&gt; Compiling test_cowboy
+src/test_cowboy_1.erl:<span class="number">10</span>: Warning: variable 'Param1' is unused
+src/test_cowboy_1.erl:<span class="number">11</span>: Warning: variable 'Param2' is unused
+</code></pre>
+<h3 id="4-启动应用："><a href="#4-启动应用：" class="headerlink" title="4.启动应用："></a>4.启动应用：</h3><pre><code class="erlang">C:\Users\danz\erl\<span class="number">1</span>\test_cowboy&gt;rebar3 shell
+Hi,I am .erlang file.
+===&gt; Verifying dependencies...
+===&gt; Compiling test_cowboy
+===&gt; The rebar3 shell is a development tool; to deploy applications in production, consider using releases (http://www.rebar3.org/docs/releases)
+Eshell V7.<span class="number">1</span>  (abort with ^G)
+<span class="number">1</span>&gt; ===&gt; Booted ranch
+<span class="number">1</span>&gt; ===&gt; Booted cowlib
+<span class="number">1</span>&gt; ===&gt; Booted cowboy
+<span class="number">1</span>&gt;    ===&gt; Booted test_cowboy
+</code></pre>
+<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><p>浏览器访问：<a href="http://localhost:8003/test_cowboy_1" target="_blank" rel="noopener">http://localhost:8003/test_cowboy_1</a><br>得到结果：Hello Erlang!  </p>
+<h3 id="6-测试工程文件"><a href="#6-测试工程文件" class="headerlink" title="6.测试工程文件"></a>6.测试工程文件</h3><p>测试工程下载：<a href="/download/test_cowboy.rar">下载(test_cowboy.rar)</a>  </p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>, <a href="/tags/erlang/">erlang</a>, <a href="/tags/rebar3/">rebar3</a>, <a href="/tags/cowboy/">cowboy</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/07/01/Rebar3RunCowboyWithWindows/">在Windows环境下使用rebar3运行cowboy例子</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/30/erlang编译报错问题和linux源码安装erlang/">erlang编译报错问题和linux源码安装erlang</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/22/erlang手记和一个版本问题/">erlang手记 &amp; 一个版本问题</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/15/java集合汇总/">java集合汇总</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/">阿里云服务器ecs安装(搭建)Tomcat</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2018/">2018</a><small>10</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
+  
+    <li><a href="/tags/cowboy/">cowboy</a><small>1</small></li>
+  
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>10</small></li>
+  
+    <li><a href="/tags/erlang/">erlang</a><small>3</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/java，集合/">java，集合</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
+    <li><a href="/tags/rebar3/">rebar3</a><small>1</small></li>
+  
+    <li><a href="/tags/word/">word</a><small>1</small></li>
+  
+    <li><a href="/tags/技术/">技术</a><small>10</small></li>
+  
+    <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/2018/" style="font-size: 20px;">2018</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/cowboy/" style="font-size: 10px;">cowboy</a> <a href="/tags/dvlp123456/" style="font-size: 20px;">dvlp123456</a> <a href="/tags/erlang/" style="font-size: 15px;">erlang</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java，集合/" style="font-size: 10px;">java，集合</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/rebar3/" style="font-size: 10px;">rebar3</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/抓包工具/" style="font-size: 10px;">抓包工具</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 dvlp123456
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

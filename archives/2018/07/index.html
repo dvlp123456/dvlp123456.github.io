@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>阿里云服务器ecs安装(搭建)Tomcat | 学无止境の博客</title>
+  <title>归档：2018/7 | 学无止境の博客</title>
   <meta name="author" content="dvlp123456" />
 
   
-  <meta name="description" content="阿里云服务器ecs安装(搭建)Tomcat" />
+  <meta name="description" content="做自己爱做的事，爱自己在做的事！" />
   
 
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="阿里云服务器ecs安装(搭建)Tomcat" />
+  
   <meta property="og:site_name" content="学无止境の博客" />
 
   
@@ -61,73 +61,25 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-06-09T03:28:15.000Z"><a href="/2018/06/09/阿里云服务器ecs安装(搭建)Tomcat/">2018-06-09</a></time>
-      
-      
-  
-    <h1 class="title">阿里云服务器ecs安装(搭建)Tomcat</h1>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2018/7</h2>
 
-    </header>
-    <div class="entry">
-      
-        <h2 id="前因后果"><a href="#前因后果" class="headerlink" title="前因后果"></a>前因后果</h2><p>个人在阿里购买了云服务器ecs，前面已经结合hexo+github+jenkins实现了可多人合作的自动部署的静态博客了，想着能不能做更多的事情，所以想试着在ecs里面安装Tomcat，试着搭建动态的服务器。  </p>
-<p>本次的目标是:<strong>安装Tomcat</strong>。   </p>
-<a id="more"></a>  
-<h2 id="马上动手做"><a href="#马上动手做" class="headerlink" title="马上动手做"></a>马上动手做</h2><p>网上搜索了一份较全的资料，地址是：<a href="https://www.jianshu.com/p/2604e53a7f6a?from=singlemessage" target="_blank" rel="noopener">https://www.jianshu.com/p/2604e53a7f6a?from=singlemessage</a><br>可以参考下这篇文章，当然了，每个人安装都会遇到不一样的问题，我记录的就是我自己的情况。  </p>
-<h3 id="安装java和Tomcat"><a href="#安装java和Tomcat" class="headerlink" title="安装java和Tomcat"></a>安装java和Tomcat</h3><p>我的Linux环境已经安装了java jdk8：  </p>
-<p><img src="/img/ecsinstalltomcat1.png" alt="">  </p>
-<p>所以我只需安装Tomcat即可，在Windows环境下下载Tomcat，去到Tomcat官网下载，如图：  </p>
-<p><img src="/img/ecsinstalltomcat2.png" alt="">  </p>
-<p><img src="/img/ecsinstalltomcat3.png" alt="">    </p>
-<p>打开xshell，连接到ecs，“窗口”–&gt;“传输新建文件”，把Tomcat放置到ecs对应位置：  </p>
-<p><img src="/img/ecsinstalltomcat4.png" alt="">  </p>
-<p>解压：tar -zcvf xxxx.tar.gz<br>Tomcat的配置文件以及日志文件位置等文件在bin同目录下：  </p>
-<p><img src="/img/ecsinstalltomcat5.png" alt="">  </p>
-<p><strong>启动Tomcat：在bin目录下，命令：./startup.sh，除了查看打印出来的信息，此时必须到日志出查看日志是否有错，没有错误表明启动成功；<br>停止Tomcat：在bin目录下，命令：./shutdown.sh，除了查看打印出来的信息，同时也必须看日志，是否有错误；</strong>  </p>
-<p>此时ecs必须开启对应端口，Tomcat默认端口是8080，我的Linux中已经被jenkins服务占用，必须改变端口，配置文件位置：xxxx/conf/server.xml<br>下面截图是解决了出现8080端口被占用的问题：  </p>
-<p><img src="/img/ecsinstalltomcat6.png" alt="">  </p>
-<p><img src="/img/ecsinstalltomcat7.png" alt="">  </p>
-<p><img src="/img/ecsinstalltomcat8.png" alt="">  </p>
-<p><img src="/img/ecsinstalltomcat9.png" alt="">  </p>
-<p><img src="/img/ecsinstalltomcat10.png" alt="">  </p>
-<p>关于Tomcat其它问题都可以搜索网上的资料，如配置文件位置，日志位置，启动错误等，很多相关资料的。  </p>
-<h2 id="相关Linux命令导航"><a href="#相关Linux命令导航" class="headerlink" title="相关Linux命令导航"></a>相关Linux命令导航</h2><p>java -version<br>javac -version<br>which java/javac<br>tar -zcvf xxxx.tar.gz<br>kill -9 3213<br>ps -ef|grep tomcat</p>
 
-      
-    </div>
+  <div class="archive">
     
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2018-07-01T12:14:23.000Z"><a href="/2018/07/01/Rebar3RunCowboyWithWindows/">2018-07-01</a></time>
+            
+              <h1 class="title"><a href="/2018/07/01/Rebar3RunCowboyWithWindows/">在Windows环境下使用rebar3运行cowboy例子</a></h1>
+            
+          </header>
         </div>
-        
-  
-  <div class="categories">
-    <a href="/categories/技术/">技术</a>
+      </article>
+    
   </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/技术/">技术</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 </div></div>
     <aside id="sidebar" class="alignright">
   
