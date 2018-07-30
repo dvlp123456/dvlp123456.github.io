@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>远程安装Mysql | 学无止境の博客</title>
+  <meta name="author" content="dvlp123456" />
+
+  
+  <meta name="description" content="远程安装Mysql" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="远程安装Mysql" />
+  <meta property="og:site_name" content="学无止境の博客" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="学无止境の博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">学无止境の博客</a></h1>
+  <h2><a href="/">记录学习的轨迹</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about.html">about</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-20T06:58:22.000Z"><a href="/2018/07/20/InstallMysql/">2018-07-20</a></time>
+      
+      
+  
+    <h1 class="title">远程安装Mysql</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1.写在前面"></a>1.写在前面</h2><p>外地朋友机器安装Mysql出现问题，需要我协助安装下。     </p>
+<a id="more"></a>
+<h2 id="2-概述"><a href="#2-概述" class="headerlink" title="2.概述"></a>2.概述</h2><p>朋友是在外地的，所以需要进行远程协助，可以qq或者TeamViewer远程控制，此次选择TeamViewer进行远程控制朋友的电脑。<br>电脑都是可以连接外网的。  </p>
+<h2 id="3-Mysql过程"><a href="#3-Mysql过程" class="headerlink" title="3.Mysql过程"></a>3.Mysql过程</h2><p>通过TeamViewer连接朋友电脑，检查到朋友机器没有目前没有安装mysql，而且没有安装包。把我本机的mysql-installer-community-5.6.12.2.msi传送到朋友的机器上，直接安装，发现无法安装上去，如下图：  </p>
+<p><img src="/img/InstallMysql1.jpg" alt="">    </p>
+<p>此安装包在我本机上是可以正常安装的，机器配置也和朋友都是差不多的，都是64位win 10机器。一时间不知道原因。<br>现在去Mysql官网下载一个最新的Mysql安装包：8.0.11的msi包，直接安装，还是和之前的安装情况一样。<br>一时间找不到解决的办法。<br>下载下其它的安装包尝试下…<br>下载一个Mysql的zip包，执行bin文件夹里面的mysqld.exe  </p>
+<p><img src="/img/InstallMysql2.jpg" alt="">    </p>
+<p>此时报无法找到dll文件，同时360也弹出修复的建议，也报了错误的原因：  </p>
+<p><img src="/img/InstallMysql3.jpg" alt=""></p>
+<p><img src="/img/InstallMysql4.jpg" alt="">        </p>
+<p>因为朋友上次卸载Mysql时参照网上教程，操作了微软系统的注册表，导致一些类库被删除，所以msi包无法正常安装。<br>让360帮忙修复：  </p>
+<p><img src="/img/InstallMysql5.jpg" alt=""></p>
+<p><img src="/img/InstallMysql6.jpg" alt="">      </p>
+<p><img src="/img/InstallMysql7.jpg" alt="">      </p>
+<p>此时再去执行最新的Mysql安装包msi文件，最终安装成功：  </p>
+<p><img src="/img/InstallMysql8.jpg" alt="">      </p>
+<p><img src="/img/InstallMysql9.jpg" alt="">      </p>
+<p>安装包会自动下载对应的安装包和安装。最终在“程序”中检查是否安装成功，并且启动Mysql和Mysql自带的client，检查全部正常：  </p>
+<p><img src="/img/InstallMysql10.jpg" alt="">      </p>
+<h2 id="4-第三方连接工具"><a href="#4-第三方连接工具" class="headerlink" title="4.第三方连接工具"></a>4.第三方连接工具</h2><p>朋友想使用第三方连接工具Navicat，简单，把本机的Navicat传送到朋友机器上，直接连接，发现报以下错误:  </p>
+<p><img src="/img/InstallMysql11.png" alt="">      </p>
+<p>我本机上的ok的，想着可能是Mysql不同版本导致的，搜索下此错误，关键字：navicat 1251，得到以下说明：<a href="https://blog.csdn.net/qq_36068954/article/details/80175755" target="_blank" rel="noopener">https://blog.csdn.net/qq_36068954/article/details/80175755</a><font col="white">，参照方法参照，问题解决！</font></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/dvlp123456/">dvlp123456</a>, <a href="/tags/2018/">2018</a>, <a href="/tags/Mysql/">Mysql</a>, <a href="/tags/技术/">技术</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>11</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/07/20/InstallMysql/">远程安装Mysql</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/01/Rebar3RunCowboyWithWindows/">在Windows环境下使用rebar3运行cowboy例子</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/30/erlang编译报错问题和linux源码安装erlang/">erlang编译报错问题和linux源码安装erlang</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/22/erlang手记和一个版本问题/">erlang手记 &amp; 一个版本问题</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/15/java集合汇总/">java集合汇总</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2018/">2018</a><small>11</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Mysql/">Mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/Nodejs/">Nodejs</a><small>1</small></li>
+  
+    <li><a href="/tags/cowboy/">cowboy</a><small>1</small></li>
+  
+    <li><a href="/tags/dvlp123456/">dvlp123456</a><small>11</small></li>
+  
+    <li><a href="/tags/erlang/">erlang</a><small>3</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/java，集合/">java，集合</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
+    <li><a href="/tags/rebar3/">rebar3</a><small>1</small></li>
+  
+    <li><a href="/tags/word/">word</a><small>1</small></li>
+  
+    <li><a href="/tags/技术/">技术</a><small>11</small></li>
+  
+    <li><a href="/tags/抓包工具/">抓包工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/2018/" style="font-size: 20px;">2018</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/cowboy/" style="font-size: 10px;">cowboy</a> <a href="/tags/dvlp123456/" style="font-size: 20px;">dvlp123456</a> <a href="/tags/erlang/" style="font-size: 15px;">erlang</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java，集合/" style="font-size: 10px;">java，集合</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/rebar3/" style="font-size: 10px;">rebar3</a> <a href="/tags/word/" style="font-size: 10px;">word</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/抓包工具/" style="font-size: 10px;">抓包工具</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 dvlp123456
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
